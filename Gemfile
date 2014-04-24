@@ -4,6 +4,7 @@ ruby '2.0.0'
 #ruby-gemset=advisicon-middleman
 
 gem "middleman", "3.3.2"
+gem 'bootstrap-sass', '3.0.3.0', require: false
 
 # Live-reloading plugin
 gem "middleman-livereload", "3.1.1"

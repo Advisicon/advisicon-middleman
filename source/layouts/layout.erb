@@ -7,13 +7,24 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title><%= current_page.data.title || "The Middleman" %></title>
+    <title><%= current_page.data.title || "Advisicon" %></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' >
+    <meta name='keywords' content="<%= current_page.data.keywords %>" >
     
-    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag  "all" %>
+
+    <%= partial 'layouts/shim' %>
   </head>
   
   <body class="<%= page_classes %>">
-    <%= yield %>
+    <%= partial 'layouts/header' %>
+    <%= partial 'layouts/carousel' if current_page.data.carousel %>
+
+    <div class="container">
+
+      <%= yield %>
+
+      <%= partial 'layouts/footer' %>
   </body>
 </html>
