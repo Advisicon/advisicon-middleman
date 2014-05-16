@@ -41,11 +41,14 @@
 # end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def list_jobs(job_category)
+    job_category.each do |job|
+      job_list += "<li><a href='#{ job.url }'>#{ job.title }</a></li>"
+    end
+    return "<ul>#{job_list}</ul>"
+  end
+end
 
 
 set :css_dir, 'stylesheets'

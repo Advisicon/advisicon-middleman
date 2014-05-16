@@ -44,9 +44,10 @@ textarea {
 }
 
 html,body{height:100%;}
-.container,.carousel,.item,.active{height:100%;}
-.carousel { height: 600px; }
+.container,.carousel,.item,.active, .splash{height:100%;}
+.carousel, .splash { height: 600px; }
 .carousel-inner{height:100%;}
+.splash{ overflow: hidden; }
 .fill, .fill:after {width:100%;height:100%;background-position:center;background-size:cover;}
 .fill:after {
   content: "";
@@ -74,7 +75,6 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
