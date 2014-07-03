@@ -1,0 +1,131 @@
+---
+layout: false
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>forms</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' >
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "all", "submit_order" %>
+
+    <%= partial 'layouts/shim' %>
+    <style> form { max-width:600px; margin-left:auto; margin-right:auto;} </style>
+  </head>
+
+  <body>
+    <form class="training form" role="form">
+      <p>Choose your ticket option</p>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Ticket type 1
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Ticket type 2
+        </label>
+      </div>
+      <div id="buyer-info">
+        <p>About the buyer</p>
+        <fieldset>
+          <label for="buyerFirstName">First name</label>
+          <input type="text" id="buyerFirstName" placeholder="John" required>
+        </fieldset>
+        <fieldset>
+          <label for="buyerLastName">Last Name</label>
+          <input type="text" id="buyerLastName" placeholder="Doe">
+        </fieldset>
+        <fieldset>
+          <label for="buyerEmail">Email</label>
+          <input type="email" id="buyerEmail" placeholder="Enter email">
+        </fieldset>
+        <fieldset>
+          <label for="buyerEmailConfirmation">Confirm email</label>
+          <input type="email" id="buyerEmailConfirmation" placeholder="Just checking for typos">
+        </fieldset>
+      </div>
+      <div id="card-info">
+        <p>About the card</p>
+        <fieldset>
+          <label for="billingStreetAddress1">Billing Street Address (line 1)</label>
+          <input type="text" name="billingStreetAddress1" id="billingStreetAddress1" required>
+        </fieldset>
+        <fieldset>
+          <label for="billingStreetAddress2">Billing Street Address (line 2)</label>
+          <input type="text" name="billingStreetAddress2" id="billingStreetAddress2">
+        </fieldset>
+        <fieldset>
+          <label for="billingLocality" required>Billing City</label>
+          <input type="text" name="billingLocality" id="billingLocality">
+        </fieldset>
+        <fieldset>
+          <label for="billingRegion" required>Billing State/Province</label>
+          <input type="text" name="billingRegion" id="billingRegion">
+        </fieldset>
+        <fieldset>
+          <label for="billingPostalCode" required>Billing Postal Code</label>
+          <input type="text" name="billingPostalCode" id="billingPostalCode">
+        </fieldset>
+        <fieldset>
+          <label for="billingCountry" required>Billing Country</label>
+          <input type="text" name="billingCountry" id="billingCountry">
+        </fieldset>
+        <fieldset class="radio-group">
+          <label class="radio">
+            <input type="radio" name="cardType" id="cardType" value="visa" checked>Visa
+          </label>
+          <label class="radio">
+            <input type="radio" name="cardType" id="cardType" value="mastercard">Mastercard
+          </label>
+          <label class="radio">
+            <input type="radio" name="cardType" id="cardType" value="americanExpress">American Express
+          </label>
+        </fieldset>
+      </div>
+      <div id="recipient-info">
+        <p>Ship to the billing address?</p>
+        <fieldset class="radio-group">
+          <label class="radio">
+            <input type="radio" name="shippingMatchesBilling" id="shippingMatchesBilling" value="true" checked>Yes
+          </label>
+          <label class="radio">
+            <input type="radio" name="shippingMatchesBilling" id="shippingMatchesBilling" value="false">No
+          </label>
+        </fieldset>
+        <div id="shipping-address">
+        <fieldset>
+          <label for="shippingStreetAddress1">Shipping Street Address (line 1)</label>
+          <input type="text" name="shippingStreetAddress1" id="shippingStreetAddress1">
+        </fieldset>
+        <fieldset>
+          <label for="shippingStreetAddress2">Shipping Street Address (line 2)</label>
+          <input type="text" name="shippingStreetAddress2" id="shippingStreetAddress2">
+        </fieldset>
+        <fieldset>
+          <label for="shippingLocality" required>Shipping City</label>
+          <input type="text" name="shippingLocality" id="shippingLocality">
+        </fieldset>
+        <fieldset>
+          <label for="shippingRegion" required>Shipping State/Province</label>
+          <input type="text" name="shippingRegion" id="shippingRegion">
+        </fieldset>
+        <fieldset>
+          <label for="shippingPostalCode" required>Shipping Postal Code</label>
+          <input type="text" name="shippingPostalCode" id="shippingPostalCode">
+        </fieldset>
+        <fieldset>
+          <label for="shippingCountry" required>Shipping Country</label>
+          <input type="text" name="shippingCountry" id="shippingCountry">
+        </fieldset>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+

@@ -1,0 +1,14 @@
+form {
+  &.training.form {
+    p { @extend .help-block; }
+    fieldset { @extend .form-group; }
+    fieldset.radio-group { @extend .radio-inline; }
+    input[type="email"] { @extend .form-control; }
+    input[type="password"] { @extend .form-control; }
+    input[type="text"] { @extend .form-control; }
+    button[type="submit"] { 
+      @extend .btn; 
+      @extend .btn-default; 
+    }
+  }
+}

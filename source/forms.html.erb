@@ -1,0 +1,100 @@
+---
+layout: false
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title>forms</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' >
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "all" %>
+
+    <%= partial 'layouts/shim' %>
+    <style> form { max-width:600px; margin-left:auto; margin-right:auto;} </style>
+  </head>
+
+  <body>
+    <form role="form">
+      <p class="help-block">An example of a stacked form</p>
+      <div class="form-group">
+        <label for="emailInput1">Email input 1</label>
+        <input type="email" class="form-control" id="emailInput1" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="passwordInput1">Password input 1</label>
+        <input type="password" class="form-control" id="passwordInput1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="fileInput1">File input 1</label>
+        <input type="file" id="fileInput1">
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Checkbox 1
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Checkbox 2
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <hr />
+
+    <form role="form">
+      <p class="help-block">Form controls</p>
+      <div class="form-group">
+        <label class="sr-only" for="textInput1">Text input 1</label>
+        <input type="text" class="form-control" id="textInput1" placeholder="Text input 1">
+      </div>
+      <div class="form-group">
+        <label for="textAreaInput">Textarea input 1</label>
+        <textarea class="form-control" rows="3"></textarea>
+      </div>
+      <p class="help-block">Mutually exclusive options</p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="mutuallyExclusive" id="radio1" value="true" checked>True
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="mutuallyExclusive" id="radio2" value="false">False
+        </label>
+      </div>
+      <select class="form-control">
+        <option>a</option>
+        <option>b</option>
+        <option>c</option>
+        <option>d</option>
+      </select>
+    </form>
+
+    <hr />
+
+    <form role="form">
+      <p class="help-block">validation states examples</p>
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="successInput">successful input</label>
+        <input type="text" class="form-control" id="successInput">
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+      <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="warningInput">warning about input</label>
+        <input type="text" class="form-control" id="warningInput">
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      </div>
+      <div class="form-group has-error has-feedback">
+        <label class="control-label" for="errorInput">bad input</label>
+        <input type="text" class="form-control" id="errorInput">
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+    </form>
+  </body>
+</html>
