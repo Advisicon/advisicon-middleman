@@ -1,0 +1,25 @@
+{
+  "name": "advisiconWeb2.0",
+  "version": "0.0.0",
+  "authors": [
+    "changecase <jeff.ja@gmail.com>"
+  ],
+  "description": "Tools for building the Advisicon web 2.0 frontend",
+  "keywords": [
+    "advisicon",
+    "web"
+  ],
+  "license": "MIT",
+  "homepage": "http://changecase.net",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrapValidator": "~0.4.5"
+  }
+}
