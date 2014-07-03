@@ -1,3 +1,5 @@
+@import "bootstrapValidator";
+
 form {
   &.training.form {
     p { @extend .help-block; }
