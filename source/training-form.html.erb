@@ -19,75 +19,89 @@ layout: false
 
   <body>
     <form class="training form" role="form">
-      <p>Choose your ticket option</p>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox">Ticket type 1
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox">Ticket type 2
-        </label>
-      </div>
+      <h2>Tickets</h2>
+      <p>Choose your ticket from among the following options</p>
+      <fieldset>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="ticket" value="1">Ticket type 1
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="ticket" value="2">Ticket type 2
+          </label>
+        </div>
+      </fieldset>
       <div id="buyer-info">
-        <p>About the buyer</p>
+        <h2>About You</h2>
+        <p>In case there are any issues with your purchase, we need to be able to contact you.</p>
         <fieldset>
-          <label for="buyerFirstName">First name</label>
-          <input type="text" id="buyerFirstName" placeholder="John" required>
+          <label for="buyerFirstName">Your first name</label>
+          <input type="text" id="buyerFirstName" class="form-control" placeholder="John" required>
         </fieldset>
         <fieldset>
-          <label for="buyerLastName">Last Name</label>
-          <input type="text" id="buyerLastName" placeholder="Doe">
+          <label for="buyerLastName">Your last name</label>
+          <input type="text" id="buyerLastName" placeholder="Doe" required>
         </fieldset>
         <fieldset>
           <label for="buyerEmail">Email</label>
-          <input type="email" id="buyerEmail" placeholder="Enter email">
+          <input type="email" id="buyerEmail" placeholder="Enter email" required>
         </fieldset>
         <fieldset>
           <label for="buyerEmailConfirmation">Confirm email</label>
-          <input type="email" id="buyerEmailConfirmation" placeholder="Just checking for typos">
+          <input type="email" id="buyerEmailConfirmation" placeholder="Just checking for typos" required>
         </fieldset>
       </div>
       <div id="card-info">
-        <p>About the card</p>
+        <h2>About the card</h2>
+        <div class="row">
+          <fieldset class="col-lg-9">
+            <label for="ccNumber">Credit card number</label>
+            <input type="text" name="ccNumber" id="ccNumber" required>
+          </fieldset>
+          <fieldset class="col-lg-3">
+            <label for="ccCvv">CVV</label>
+            <input type="text" name="ccCvv" id="ccCvv" required>
+          </fieldset>
+        </div>
         <fieldset>
-          <label for="billingStreetAddress1">Billing Street Address (line 1)</label>
-          <input type="text" name="billingStreetAddress1" id="billingStreetAddress1" required>
+          <label for="nameOnCard">Name on the card</label>
+          <input type="text" id="nameOnCard" placeholder="John Doe" required>
         </fieldset>
-        <fieldset>
-          <label for="billingStreetAddress2">Billing Street Address (line 2)</label>
-          <input type="text" name="billingStreetAddress2" id="billingStreetAddress2">
-        </fieldset>
-        <fieldset>
-          <label for="billingLocality" required>Billing City</label>
-          <input type="text" name="billingLocality" id="billingLocality">
-        </fieldset>
-        <fieldset>
-          <label for="billingRegion" required>Billing State/Province</label>
-          <input type="text" name="billingRegion" id="billingRegion">
-        </fieldset>
-        <fieldset>
-          <label for="billingPostalCode" required>Billing Postal Code</label>
-          <input type="text" name="billingPostalCode" id="billingPostalCode">
-        </fieldset>
-        <fieldset>
-          <label for="billingCountry" required>Billing Country</label>
-          <input type="text" name="billingCountry" id="billingCountry">
-        </fieldset>
-        <fieldset class="radio-group">
-          <label class="radio">
-            <input type="radio" name="cardType" id="cardType" value="visa" checked>Visa
-          </label>
-          <label class="radio">
-            <input type="radio" name="cardType" id="cardType" value="mastercard">Mastercard
-          </label>
-          <label class="radio">
-            <input type="radio" name="cardType" id="cardType" value="americanExpress">American Express
-          </label>
-        </fieldset>
+        <div class="row">
+          <fieldset class="col-lg-9">
+            <label for="ccStreetAdr1">Billing Street Address</label>
+            <input type="text" name="ccStreetAdr1" id="ccStreetAdr1" placeholder="5411 NE 107th Ave." required>
+          </fieldset>
+          <fieldset class="col-lg-3">
+            <label for="ccStreetAdr2">Suite/Apartment</label>
+            <input type="text" name="ccStreetAdr2" id="ccStreetAdr2" placeholder="Suite 200">
+          </fieldset>
+        </div>
+        <div class="row">
+          <fieldset class="col-lg-7">
+            <label for="ccLocality">City</label>
+            <input type="text" name="ccLocality" id="ccLocality" placeholder="Vancouver" required>
+          </fieldset>
+          <fieldset class="col-lg-5">
+            <label for="billingRegion">State/Province</label>
+            <input type="text" name="billingRegion" id="billingRegion" placeholder="Washington" required>
+          </fieldset>
+        </div>
+        <div class="row">
+          <fieldset class="col-lg-4">
+            <label for="billingPostalCode">Postal Code</label>
+            <input type="text" name="billingPostalCode" id="billingPostalCode" placeholder="98662" required>
+          </fieldset>
+          <fieldset class="col-lg-8">
+            <label for="billingCountry">Country</label>
+            <input type="text" name="billingCountry" id="billingCountry" placeholder="United States" required>
+          </fieldset>
+        </div>
       </div>
       <div id="recipient-info">
+        <h2>Shipping Destination</h2>
         <p>Ship to the billing address?</p>
         <fieldset class="radio-group">
           <label class="radio">
@@ -98,30 +112,36 @@ layout: false
           </label>
         </fieldset>
         <div id="shipping-address">
-        <fieldset>
-          <label for="shippingStreetAddress1">Shipping Street Address (line 1)</label>
-          <input type="text" name="shippingStreetAddress1" id="shippingStreetAddress1">
-        </fieldset>
-        <fieldset>
-          <label for="shippingStreetAddress2">Shipping Street Address (line 2)</label>
-          <input type="text" name="shippingStreetAddress2" id="shippingStreetAddress2">
-        </fieldset>
-        <fieldset>
-          <label for="shippingLocality" required>Shipping City</label>
-          <input type="text" name="shippingLocality" id="shippingLocality">
-        </fieldset>
-        <fieldset>
-          <label for="shippingRegion" required>Shipping State/Province</label>
-          <input type="text" name="shippingRegion" id="shippingRegion">
-        </fieldset>
-        <fieldset>
-          <label for="shippingPostalCode" required>Shipping Postal Code</label>
-          <input type="text" name="shippingPostalCode" id="shippingPostalCode">
-        </fieldset>
-        <fieldset>
-          <label for="shippingCountry" required>Shipping Country</label>
-          <input type="text" name="shippingCountry" id="shippingCountry">
-        </fieldset>
+          <div class="row">
+            <fieldset class="col-lg-9">
+              <label for="shippingStreetAddress1">Shipping Street Address</label>
+              <input type="text" name="shippingStreetAddress1" id="shippingStreetAddress1">
+            </fieldset>
+            <fieldset class="col-lg-3">
+              <label for="shippingStreetAddress2">Suite/Apartment</label>
+              <input type="text" name="shippingStreetAddress2" id="shippingStreetAddress2">
+            </fieldset>
+          </div>
+          <div class="row">
+            <fieldset class="col-lg-7">
+              <label for="shippingLocality" required>Shipping City</label>
+              <input type="text" name="shippingLocality" id="shippingLocality">
+            </fieldset>
+            <fieldset class="col-lg-5">
+              <label for="shippingRegion" required>Shipping State/Province</label>
+              <input type="text" name="shippingRegion" id="shippingRegion">
+            </fieldset>
+          </div>
+          <div class="row">
+            <fieldset class="col-lg-4">
+              <label for="shippingPostalCode" required>Shipping Postal Code</label>
+              <input type="text" name="shippingPostalCode" id="shippingPostalCode">
+            </fieldset>
+            <fieldset class="col-lg-8">
+              <label for="shippingCountry" required>Shipping Country</label>
+              <input type="text" name="shippingCountry" id="shippingCountry">
+            </fieldset>
+          </div>
         </div>
       </div>
       <button type="submit">Submit</button>
