@@ -1,23 +1,44 @@
 ---
-title: Training Purchase
+title: Practical Project Management
 keywords:
-layout: blank
-shopping: true
 ---
 
+<article class="row">
+  <div class="jumbotron">
+    <h1>Practical Project Management</h1>
+
+    <p><%= lorem.paragraph %>.</p>
+  </div>
+
+  <section id="product-intro" class="col-md-6 col-md-offset-3">
+    <p><%= lorem.paragraph %>.</p>
+  </section>
+
+  <section id="product-description" class="col-md-6 col-md-offset-3">
+    <%= image_tag lorem.image("600x300"), class: "img-responsive" %>
+    <p>
+      <%= lorem.paragraphs(3).gsub(/(.+)$/, '<p>\1</p>') %>
+    </p>
+    <p>
+      <%=link_to "Register now!", '#order', id: "expand-form", class: "btn btn-primary btn-lg active" %>
+    </p>
+    <%= javascript_include_tag 'collapse_order_form' %>
+  </section>
+</article>
+
 <section class="row">
-  <form action="/" id="sampleorder" class="training form col-lg-8 col-lg-offset-2" role="form">
+  <form action="/" id="order" class="training form col-lg-8 col-lg-offset-2" role="form">
     <h2>Tickets</h2>
     <p>Choose your ticket from among the following options</p>
     <fieldset>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="ticket" value="1"><%= lorem.words(2).capitalize %> ($<%= rand(0..100) %>)
+          <input type="checkbox" name="ticket" value="1">General Admission + Afterparty ($50)
         </label>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="ticket" value="2"><%= lorem.words(3).capitalize %> ($<%= rand(0..100) %>)
+          <input type="checkbox" name="ticket" value="2">General Admission ($40)
         </label>
       </div>
     </fieldset>
@@ -84,7 +105,7 @@ shopping: true
         </fieldset>
         <fieldset class="col-lg-8">
           <label for="ccCountry">Country</label>
-          <input type="text" name="billingCountry" id="billingCountry" placeholder="United States" required list="countries">
+          <input type="text" name="billingCountry" id="billingCountry" placeholder="United States" list="countries" required>
           <datalist id="countries">
             <option value="United States">
             <option value="Canada">
@@ -146,3 +167,4 @@ shopping: true
   </form>
   <div id="result"></div>
 </section>
+

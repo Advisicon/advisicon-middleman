@@ -27,4 +27,31 @@ $(function() {                                                          // load 
     }
   });
 
+  //
+  // FORM SUBMITTAL
+  //
+
+  $("#order").submit(function( event ) {
+    event.preventDefault();
+
+    var $form = $(this),
+      ticket = $form.find('input[name="ticket"]').val(),
+      b_fn =   $form.find('input[name="buyerFirstName"]').val(),
+      b_ln =   $form.find('input[name="buyerLastName"]').val(),
+      email =  $form.find('input[name="buyerEmail"]').val(),
+      email_confirm =  $form.find('input[name="buyerEmail"]').val(),
+      ccNum =  $form.find('input[name="ccNumber"]').val(),
+      ccCvv =  $form.find('input[name="ccCvv"]').val(),
+      url =    $form.attr('action');
+
+
+    var posting = $.post ( url, { s: term } );
+
+    posting.done(function( data ) {
+      var content = $( data ).find( "#content" );
+      $( "#result" ).empty().append( content );
+    });
+  });
+
+
 });

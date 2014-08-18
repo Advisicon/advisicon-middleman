@@ -143,6 +143,33 @@ $(document).ready(function() {
             message: 'The address associated with this credit card can only consist of letters and numbers'
           }
         }
+      },
+      ccRegion: {
+        message: 'This state or province is invalid',
+        validators: {
+          regexp: {
+            regexp: /^[a-zA-Z ]+$/,
+            message: 'The state/province associated with this credit card can only consist of letters and numbers'
+          }
+        }
+      },
+      ccPostalCode: {
+        message: 'This postal code is invalid',
+        validators: {
+          regexp: {
+            regexp: /^\d{5]$/,
+            message: 'The postal code must contain 5 digits'
+          }
+        }
+      },
+      ccCountry: {
+        message: 'This country is invalid',
+        validators: {
+          regexp: {
+            regexp: /^[a-zA-Z ]+$/,
+            message: 'The country associated with this credit card can only consist of letters and numbers'
+          }
+        }
       }
     }
   });

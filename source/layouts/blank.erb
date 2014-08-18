@@ -18,14 +18,13 @@
   </head>
   
   <body class="<%= page_classes %>">
-    <%= partial 'layouts/header' %>
-    <%= partial 'layouts/carousel' if current_page.data.carousel %>
 
     <div class="container">
 
       <%= yield %>
 
-      <%= partial 'layouts/footer' %>
+      <% javascript_include_tag "submit_order" if current_page.data.shopping %>
 
   </body>
 </html>
+
