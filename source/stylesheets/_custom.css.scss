@@ -106,7 +106,8 @@ header { font-family: $font-stack; }
   line-height: 1;
   padding-left: 3em;
   margin-left: -3em;
-  background: url("logo-white.png") no-repeat 10% 90%;
+  background: url(image-path("logo-white.png")) no-repeat 10% 90% / auto 26px;
+  background-image: url(image-path("logo.svg"));
   &:hover {
     color: #fff;
     text-decoration: none;
@@ -171,7 +172,7 @@ footer {
 
 /* products */
 
-
+            
 @media (max-width: $screen-sm-max) { .training .course:nth-child(2n+1) {clear:left;} }
 @media (max-width: $screen-md-max) { .training .course:nth-child(3n+1) {clear:left;} }
 @media (min-width: $screen-lg-min) { .training .course:nth-child(4n+1) {clear:left;} }
