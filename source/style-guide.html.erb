@@ -1,0 +1,176 @@
+---
+title: Style Guide
+keywords:
+---
+
+<div class="row">
+
+  <section class="main-content">
+    <h1>Forms</h1>
+    <form action="#" id="" class="training form" role="form">
+      <legend>Form Controls</legend>
+
+      <!-- EXAMPLE: help text -->
+      <p>
+        Paragraphs within forms are for helpful text. Assist the users, but
+        don't overwhelm them!
+      </p> 
+
+      <!-- EXAMPLE: checkboxes -->
+      <fieldset>
+        <label>Checkbox</label>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="optionsCheckbox" value="option1">
+            Option one is this and that&ndash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="optionsCheckbox" value="option2">
+            Option two is that and this
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- EXAMPLE: radio buttons -->
+      <fieldset class="radio-group">
+        <label>Radio buttons</label>
+        <label class="radio">
+          <input type="radio" name="radioOption" id="radioOption" value="1">
+          Option one
+        </label>
+        <label class="radio">
+          <input type="radio" name="radioOption" id="radioOption" value="2">
+          Option two
+        </label>
+      </fieldset>
+
+      <!-- EXAMPLE: text inputs -->
+      <fieldset>
+        <label for="textInput">Text input</label>
+        <input type="text" id="textInput" name="textInput" class="form-control">
+      </fieldset>
+
+      <fieldset>
+        <label for="textInputRequired">Required text input</label>
+        <input type="text" id="textInputRequired" name="textInputRequied" class="form-control" required>
+      </fieldset>
+
+      <fieldset>
+        <label for="textInputPlaceholder">Placeholder in text input</label>
+        <input type="text" id="textInputPlaceholder" name="textInputPlaceholder" class="form-control" placeholder="This is placeholder text">
+        <p>
+          Placeholder text disapears when the users begins to type in the 
+          input field.
+        </p>
+      </fieldset>
+
+      <!-- EXAMPLE: selection lists -->
+      <fieldset>
+        <label for="selectList">Selection list</label>
+        <select id="selectList" name="selectList">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </fieldset>
+
+      <fieldset>
+        <label for="selectListHTML5">Selection list with user entry option</label>
+        <input type="text" name="selectListHTML5" list="optionsDatalist">
+        <datalist id="optionsDatalist">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="4">Four</option>
+        </datalist>
+      </fieldset>
+
+      <!-- EXAMPLE: submit -->
+      <button type="submit">OK!</button>
+
+    </form>
+  </section>
+</div>
+
+<div class="row">
+  <section style="margin-top:20%;">
+    <h1>Icon &amp; Small Image Featurettes</h1>
+
+    <!-- EXAMPLE: Icon Featurettes -->
+    <section class="featurette">
+      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+      <div class="featurette-content">
+        <h1 class="featurette-heading">Awesome Statement.
+          <span class="muted">Attention-grabbing byline pulls them in.</span>
+        </h1>
+        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
+        <p>
+          <%= link_to 'Call to action', '#', class: "featurette-btn" %>
+        </p>
+      </div>
+    </section>
+
+    <section class="featurette">
+      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+      <div class="featurette-content">
+        <h1 class="featurette-heading">Images alternate sides.
+          <span class="muted">Even ones go on the left.</span>
+        </h1>
+        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
+        <p>
+          <%= link_to lorem.words(3).capitalize, '#', class: "featurette-btn" %>
+        </p>
+      </div>
+    </section>
+
+    <section class="featurette">
+      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+      <div class="featurette-content">
+        <h1 class="featurette-heading">The third featurette.
+          <span class="muted">Images in odd featurettes go on the right.</span>
+        </h1>
+        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
+        <p>
+          <%= link_to lorem.words(2).capitalize, '#', class: "featurette-btn" %>
+        </p>
+      </div>
+    </section>
+
+    <section class="row">
+      <section class="main-content">
+        <h1>Impact Featurettes</h1>
+      </section>
+    </section>
+
+    <section class="featurette-impact">
+      <%= link_to image_tag(lorem.image('600'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+      <div class="featurette-content">
+        <h1 class="featurette-heading">
+          Stand out with impact featurettes.
+        </h1>
+        <p class="lead"><%= lorem.paragraph %>.</p>
+        <p>
+          <%= link_to lorem.words(3).capitalize, '#', class: "featurette-btn" %>
+        </p>
+      </div>
+    </section>
+
+    <section class="featurette-impact">
+      <%= link_to image_tag(lorem.image('200x1200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+      <div class="featurette-content">
+        <h1 class="featurette-heading">
+          Stand out with impact featurettes.
+        </h1>
+        <p class="lead"><%= lorem.paragraph %>.</p>
+        <p>
+          <%= link_to lorem.words(3).capitalize, '#', class: "featurette-btn" %>
+        </p>
+      </div>
+    </section>
+
+  </section>
+
+</div>
