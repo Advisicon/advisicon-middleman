@@ -4,7 +4,7 @@ header { font-family: $font-stack; }
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $primaryInverse;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -15,7 +15,7 @@ header { font-family: $font-stack; }
   background: url(image-path("logo-white.png")) no-repeat 10% 90% / auto 26px;
   background-image: url(image-path("logo.svg"));
   &:hover {
-    color: #fff;
+    color: $primaryInverse;
     text-decoration: none;
   }
 }
@@ -25,3 +25,20 @@ header { font-family: $font-stack; }
   float: left;
 }
 
+.navbar .nav > li a { 
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em; 
+  padding: 5px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: rgba(255, 255, 255, 0.9333333333);
+}

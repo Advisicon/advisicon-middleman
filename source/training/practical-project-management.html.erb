@@ -14,13 +14,27 @@ keywords:
     <p><%= lorem.paragraph %>.</p>
   </section>
 
+  <section class="secondary-content">
+  <section class="featurette-impact bgvid">
+    <video controls autoplay loop poster="/videos/placeholder4.png">
+      <source src="/videos/placeholder4.mp4" type="video/mp4">
+    </video>
+    <div class="featurette-content right">
+      <h1 class="featurette-heading">
+        Manage Your Projects, Practically.
+      </h1>
+      <p class="lead">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+      <p>
+        <%= link_to 'Register now', '#order', class: "featurette-btn expand-form" %>
+      </p>
+  </section>
+</section>
   <section id="product-description" class="col-md-6 col-md-offset-3">
-    <%= image_tag lorem.image("600x300"), class: "img-responsive" %>
     <p>
       <%= lorem.paragraphs(3).gsub(/(.+)$/, '<p>\1</p>') %>
     </p>
     <p>
-      <%=link_to "Register now!", '#order', id: "expand-form", class: "btn btn-primary btn-lg active" %>
+      <%=link_to "Register now!", '#order', class: "btn btn-primary btn-lg active expand-form" %>
     </p>
     <%= javascript_include_tag 'collapse_order_form' %>
   </section>

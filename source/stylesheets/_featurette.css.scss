@@ -2,12 +2,13 @@
 // Small Icon Featurettes
 // ==============================================
 
+.secondary-content { clear:left; overflow:hidden; }
 .featurette, 
-.mofo { 
+.mofo,
+.featurette-impact { 
   min-height: 90%; 
-  padding: 5% 100%; 
-  margin-left: -100%; 
-  margin-right: -100%; 
+  padding-top:    5%;
+  padding-bottom: 5%;
 }
 
 .featurette a img {
@@ -28,7 +29,8 @@
   @extend .col-md-pull-0;
   .featurette-heading { 
     @extend h2;
-    color: rgba(200, 0, 0, .75);
+//    color: rgba(200, 0, 0, .75);
+    @include alpha-attribute('color', rgba($brightHighlight, .75), #fff);
     text-align: left;
     .muted { @extend .text-muted; }
   }
@@ -71,7 +73,8 @@
 
 .featurette-impact {
   @extend .row;
-  a {
+  position: relative;
+  & > a {
     @extend .col-lg-6;
     @extend .col-md-6;
     img {
@@ -79,8 +82,36 @@
       @extend .center-block;
     }
   }
+  &.bgvid {
+    overflow: hidden;
+    & > video {
+      position: absolute;
+      top:0; left:0;
+      min-width: 100%; min-height:100%;
+      width: auto; height: auto; z-index: -100;
+      background: url() no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    & > video + .featurette-content {
+      position: relative;
+      @extend .col-md-6;
+      @extend .col-md-offset-1;
+      &.right {
+        @extend .col-md-offset-5;
+      }
+    }
+  }
+  & > video.featurette-video {
+    @extend .col-md-12;
+    & + .featurette-content {
+      @extend .col-md-9;
+      @extend .col-md-offset-1;
+    }
+  }
   .featurette-content {
     @extend .col-md-4;
+    background-color: rgba(255,255,255,.5);
     .featurette-heading {
       @extend h2;
       text-align: left;
@@ -96,3 +127,5 @@
     }
   }
 }
+
+.jrjs-feature { @extend .col-md-12; margin-top: 20%; }

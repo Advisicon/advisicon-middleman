@@ -4,9 +4,9 @@ footer {
   border-top: 1px solid $grayMediumLight;
   color: $lightGray;
   a {
-    color: #555;
+    color: $grayDark;
     &:hover {
-      color: #222;
+      color: $grayVeryDark;
     }
   }
   small {

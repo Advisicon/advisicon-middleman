@@ -6,3 +6,11 @@
   background: -o-linear-gradient(top, $start-color $start-opacity, $end-color $end-opacity);                            // Opera 11.10+
   background: linear-gradient(top, $start-color $start-opacity, $end-color $end-opacity);
 }
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque:  opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}

@@ -25,10 +25,12 @@ p {
   line-height: 1.7em;
 }
 
-a { color: $red*1.5; }
+a { 
+  @include alpha-attribute('color', rgba($brightHighlight, .75), #fff);
+}
 a:hover, a:focus, .nav a:hover, .nav a:focus { color: $red; }
 .nav a { 
-  color: #eee; 
+  color: $grayVeryLight; 
   letter-spacing: 1px;
 }
 
