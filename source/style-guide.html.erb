@@ -204,10 +204,13 @@ keywords:
     <div class="chart"></div>
     <style>
       path { 
-        stroke: steelblue;
-        stroke-width: 2;
+        stroke: #ddd;
+        stroke-width: 5;
         fill: none;
+        -webkit-transition: all .5s;
+        transition: all .125s;
       }
+      path:hover { stroke: #666; }
       .axis path,
       .axis line {
         fill: none;
@@ -216,6 +219,10 @@ keywords:
         shape-rendering: crispEdges;
       }
       .axis text { fill: #ccc; }
+      .overtime { 
+        fill: #fdd;
+        fill: rgba(255,0,0,.125);
+      }
     </style>
     <script type="text/javascript">
 
@@ -241,7 +248,7 @@ keywords:
 
       var valueline = d3.svg.line()
         .x(function(d) { return x(d.date); })
-        .y(function(d) { return y(d.all_work_average); });
+        .y(function(d) { return y(d.tim_runcie); });
 
       var svg = d3.select("#first-dataset .chart")
         .append("svg")
@@ -250,24 +257,27 @@ keywords:
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var rectangle = svg
-        .append("rect")
-          .attr("x", "0")
-          .attr("y", "0")
-          .attr("width", width )
-          .attr("height", height * .333333333333)
-          .attr("style", "fill:rgba(255,0,0,.25);");
-
       // Get the data
-      d3.json("/data/billable_totals.json", function(error, data) {
+      d3.json("/data/hours.json", function(error, data) {
         data.forEach(function(d) {
           d.date = parseDate(d.date);
-          d.all_work_average = +d.all_work_average;
+          d.total_billable = +d.total_billable;
+          d.total = +d.total;
+          d.tim_runcie = +d.tim_runcie.billable;
+          d.rick_gardner = +d.rick_gardner.billable;
         });
 
         // Scale the range of the data
         x.domain(d3.extent(data, function(d) { return d.date; }));
-        y.domain([0, d3.max(data, function(d) { return d.all_work_average; })]);
+        y.domain([0, d3.max(data, function(d) { return d.tim_runcie; })]);
+
+        // Add the overtime box
+        svg.append("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("width", width)
+          .attr("height", y(40))
+          .attr("class", "overtime");
 
         // Add the valueline path
         svg.append("path")
