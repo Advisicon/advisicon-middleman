@@ -230,7 +230,7 @@ keywords:
           width = $(".data-display .chart").width() - margin.left - margin.right,
           height = 200 - margin.top - margin.bottom;
 
-      var parseDate = d3.time.format('%m/%d/%Y').parse;
+      var parseDate = d3.time.format('%Y-%m-%d').parse;
 
       var x = d3.time.scale()
         .range([0, width]);
@@ -249,7 +249,6 @@ keywords:
         .orient("left");
 
       var line = d3.svg.line()
-        .interpolate("basis")
         .x(function(d) { return x( d.date ); })
         .y(function(d) { return y( d.hours ); });
 
@@ -268,6 +267,7 @@ keywords:
 
         data.forEach(function(d) {
           d.date = parseDate(d.date);
+          console.log(d.date);
         });
 
         var employees = color.domain().map(function(name) {
@@ -283,16 +283,16 @@ keywords:
         });
 
         // Scale the range of the data
-        x.domain(d3.extent(data, function(d) { d.date; }));
+        x.domain(d3.extent(data, function(d) { return d.date; }));
 
         y.domain([
-            0,
-            d3.max(employees, function(e) {
-              return d3.max(e.values, function(v) { 
-                return v.hours; 
-              });
-            })
-          ]);
+          0,
+          d3.max(employees, function(e) {
+            return d3.max(e.values, function(v) { 
+              return v.hours; 
+            });
+          })
+        ]);
 
         // Add the overtime box
         svg.append("rect")
@@ -319,8 +319,7 @@ keywords:
         // Add the valueline paths
         employee.append("path")
           .attr("class", "line")
-          .attr("d", function(d) { return line(d.values); })
-          .style("stroke", function(d) { return color(d.name); });
+          .attr("d", function(d) { return line(d.values); });
 
       });
 
