@@ -220,6 +220,8 @@ keywords:
         font-size: 1.125em;
         font-weight: bold;
       }
+      .employee:hover .line {stroke: #333;}
+      .employee:hover text { fill: #333 !important; }
       .axis path,
       .axis line {
         fill: none;
@@ -324,9 +326,10 @@ keywords:
           .append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
+            .attr("x", -3)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Hours Worked");
+            .text("Hours Worked this Week");
 
         var employee = svg.selectAll(".employee")
             .data(employees)
