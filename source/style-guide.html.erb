@@ -240,15 +240,18 @@ keywords:
       var x = d3.time.scale().range([0, width]);
       var y = d3.scale.linear().range([height, 0]);
 
+      var color = d3.scale.category20c();
+
       var xAxis = d3.svg.axis().scale(x)
         .orient("bottom").ticks(5);
 
       var yAxis = d3.svg.axis().scale(y)
         .orient("left").ticks(3);
 
-      var valueline = d3.svg.line()
-        .x(function(d) { return x(d.date); })
-        .y(function(d) { return y(d.tim_runcie); });
+      var line = d3.svg.line()
+        .interpolate("basis")
+        .x(function(d) { return x(parseDate( d.date )); })
+        .y(function(d) { return y(d.billable); })
 
       var svg = d3.select("#first-dataset .chart")
         .append("svg")
@@ -259,17 +262,44 @@ keywords:
 
       // Get the data
       d3.json("/data/hours.json", function(error, data) {
-        data.forEach(function(d) {
-          d.date = parseDate(d.date);
-          d.total_billable = +d.total_billable;
-          d.total = +d.total;
-          d.tim_runcie = +d.tim_runcie.billable;
-          d.rick_gardner = +d.rick_gardner.billable;
+        console.log("Initial Data", data);
+
+        var employee_names = d3.values(data).filter(function(value) {
+          console.log("value", value);
+          console.log("value.employee", value.employee);
+          console.log("value.employee[1]", value.employee[1]);
+          return value.employee[1].name;
+        });
+
+        console.log("employee names", employee_names);
+        color.domain(function(d,i) {d3.keys(employee_names)});
+
+        var employees = color.domain().map(function(name,i) {
+          return {
+            name:   data.map(function(d) {
+              return d.employee[i].name;
+            }),
+            values: data.map(function(d) {
+              return {date: d.date, billable: +d.employee[i].billable};
+            })
+           });
+          return {
+            name:   data.map(function(d) {
+              return d.employee[i].name;
+            }),
+            values: data.map(function(d) {
+              return {date: d.date, billable: +d.employee[i].billable};
+            })
+          };
         });
 
         // Scale the range of the data
-        x.domain(d3.extent(data, function(d) { return d.date; }));
-        y.domain([0, d3.max(data, function(d) { return d.tim_runcie; })]);
+        x.domain(d3.extent(data, function(d) { return parseDate( d.date ); }));
+        y.domain([0, d3.max(data, function(d) { 
+          return d3.max(d.employee, function(d) {
+            return d.billable;
+          }); 
+        })]);
 
         // Add the overtime box
         svg.append("rect")
@@ -279,9 +309,15 @@ keywords:
           .attr("height", y(40))
           .attr("class", "overtime");
 
-        // Add the valueline path
-        svg.append("path")
-          .attr("d", valueline(data));
+        var employee = svg.selectAll(".employee")
+            .data(employees)
+          .enter().append("g")
+            .attr("class", "employee");
+
+        // Add the valueline paths
+        employee.append("path")
+          .attr("class", "line")
+          .attr("d", function(d) { return line(d.values); });
         
         // Add the X Axis
         svg.append("g")

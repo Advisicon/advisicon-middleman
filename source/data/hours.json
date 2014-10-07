@@ -3,44 +3,60 @@
     "date": "2014-09-28",
     "total_billable": 283.30,
     "total": 671.25,
-    "tim_runcie": {
-      "billable": 46.5
-    },
-    "rick_gardner": {
-      "billable":  4
-    }
+    "employee": [
+      {
+        "name": "Tim Runcie",
+        "billable": 46.5
+      },
+      {
+        "name": "Rick Gardner",
+        "billable":  4
+      }
+    ]
   },
   {
     "date": "2014-09-21",
     "total_billable": 250.55,
     "total": 645.00,
-    "tim_runcie": {
-      "billable": 28.5
-    },
-    "rick_gardner": {
-      "billable": 3
-    }
+    "employee": [
+      {
+        "name": "Tim Runcie",
+        "billable": 28.5
+      },
+      {
+        "name": "Rick Gardner",
+        "billable": 3
+      }
+    ]
   },
   {
     "date": "2014-09-14",
     "total_billable": 218.75,
     "total": 593.50,
-    "tim_runcie": {
-      "billable": 9
-    },
-    "rick_gardner": {
-      "billable": 10
-    }
+    "employee": [
+      {
+        "name": "Tim Runcie",
+        "billable": 9
+      },
+      {
+        "name": "Rick Gardner",
+        "billable": 10
+      }
+    ]
   },
   {
     "date": "2014-09-07",
     "total_billable": 557.95,
     "total": 158.5,
-    "tim_runcie": {
-      "billable": 5.5
-    },
-    "rick_gardner": {
-      "billable": 2
-    }
+    "employee": [
+      {
+        "name": "Tim Runcie",
+        "billable": 5.5
+      },
+      {
+        "name": "Rick Gardner",
+        "billable": 2
+      }
+    ]
   }
 ]
