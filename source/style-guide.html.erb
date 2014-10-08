@@ -206,22 +206,21 @@ keywords:
       path { 
         fill: none;
       }
-      .employee { 
-        stroke-opacity: 0.25;
+      .employee .line { 
+        stroke-opacity: 0.125;
         stroke-width: 2;
         -webkit-transition: all .25s ease-in-out;
         -moz-transition: all .25s ease-in-out;
         -o-transition: all .25s ease-in-out;
         transition: all .25s ease-in-out;
       }
-      .employee:hover { 
+      .employee .line:hover,
+      .employee .line.toggled { 
         stroke-opacity: 0.9; 
         stroke-width: 3; 
         font-size: 1.125em;
         font-weight: bold;
       }
-      .employee:hover .line {stroke: #333;}
-      .employee:hover text { fill: #333 !important; }
       .axis path,
       .axis line {
         fill: none;
@@ -235,12 +234,19 @@ keywords:
         fill: #fdd;
         fill: rgba(255,0,0,.0625);
       }
+      .data-toggle button {
+        margin-bottom: 1em;
+        -webkit-transition: all .25s ease-in-out;
+        -moz-transition: all .25s ease-in-out;
+        -o-transition: all .25s ease-in-out;
+        transition: all .25s ease-in-out;
+      }
     </style>
     <script type="text/javascript">
 
-      var margin = {top: 30, right: 160, bottom: 30, left: 50},
+      var margin = {top: 30, right: 50, bottom: 30, left: 50},
           width = $(".data-display .chart").width() - margin.left - margin.right,
-          height = $(window).height() - 60 - margin.top - margin.bottom;
+          height = 300 - margin.top - margin.bottom;
 
       var parseDate = d3.time.format('%Y-%m-%d').parse;
 
@@ -280,7 +286,6 @@ keywords:
 
         data.forEach(function(d) {
           d.date = parseDate(d.date);
-          console.log(d.date);
         });
 
         var employees = color.domain().map(function(name) {
@@ -338,26 +343,56 @@ keywords:
 
         // Add the valueline paths
         employee.append("path")
+          .attr("id", function(d) { 
+            return "line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          })
           .attr("class", "line")
           .attr("d", function(d) { return line(d.values); })
           .attr("stroke", function(d) { return color(d.name); });
 
-        // Add labels
-        employee.append("text")
-          .datum(function(d) {
-            return {name: d.name, value: d.values[d.values.length - 1]};
+        //
+        // Add toggle container
+        var toggles = d3.select("#first-dataset .chart").selectAll(".data-toggle")
+            .data(employees)
+          .enter().append("div")
+          .attr("class", "data-toggle col-md-2");
+
+        // Add toggle button
+        var toggle = toggles.append("button")
+            .datum(function(d) {
+              return {name: d.name, value: d.values[d.values.length - 1]};
+            })
+          .attr("type", "button")
+          .attr("id", function(d) { 
+            return "toggle-" + (d.name).replace(/\s+/g, "-").toLowerCase(); 
           })
-          .attr("x", width + 3)
-          .attr("y", function (d,i) { return (i * 20) + 9; })
-          .attr("dy", ".35em")
-          .text(function(d) { return d.name; })
-          .style("fill", function(d) { return color(d.name); });
+          .attr("class", "btn btn-default")
+          .text(function(d) { return d.name; });
+
+          toggle.on("click", function(d) {
+            var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+            
+            console.log(tggldLine);
+            // determine if active
+            var active = this.active ? false : true,
+            newColor = active ? function(d) {return color( d.name )} : null,
+            lineState = active ? true : false; 
+            // color the border & text or don't
+            d3.select(this)
+              .style("font-weight", active ? "bold" : null)
+              .style("border-color", newColor)
+              .style("color", newColor);
+            // update opacity of line element
+            d3.select(tggldLine).classed("toggled", lineState);
+            // update element state
+            this.active = active;
+          });
 
       });
 
     </script>
     <div class="data-display-content">
-      <p>Advisicon's billable totals for all work.</p>
+      <p>Advisicon's weekly hourly totals for all work.</p>
     </div>
 
   </section>
