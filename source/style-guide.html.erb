@@ -152,8 +152,8 @@ keywords:
       </div>
     </section>
     <section class="featurette-impact">
-      <video controls poster="/videos/placeholder.png" class="featurette-video">
-        <source src="/videos/placeholder2.mp4" type="video/mp4">
+      <video controls poster="/videos/placeholder4.png" class="featurette-video">
+        <source src="/videos/placeholder4.mp4" type="video/mp4">
       </video>
       <div class="featurette-content">
         <h1 class="featurette-heading">
@@ -216,7 +216,7 @@ keywords:
       }
       .employee .line:hover,
       .employee .line.toggled { 
-        stroke-opacity: 0.9; 
+        stroke-opacity: 1; 
         stroke-width: 3; 
         font-size: 1.125em;
         font-weight: bold;
@@ -246,7 +246,7 @@ keywords:
 
       var margin = {top: 30, right: 50, bottom: 30, left: 50},
           width = $(".data-display .chart").width() - margin.left - margin.right,
-          height = 300 - margin.top - margin.bottom;
+          height = 400 - margin.top - margin.bottom;
 
       var parseDate = d3.time.format('%Y-%m-%d').parse;
 
@@ -355,7 +355,7 @@ keywords:
         var toggles = d3.select("#first-dataset .chart").selectAll(".data-toggle")
             .data(employees)
           .enter().append("div")
-          .attr("class", "data-toggle col-md-2");
+          .attr("class", "data-toggle col-sm-3 col-xs-6");
 
         // Add toggle button
         var toggle = toggles.append("button")
@@ -363,30 +363,50 @@ keywords:
               return {name: d.name, value: d.values[d.values.length - 1]};
             })
           .attr("type", "button")
-          .attr("id", function(d) { 
-            return "toggle-" + (d.name).replace(/\s+/g, "-").toLowerCase(); 
-          })
+          .attr("id", function(d) { return "toggle-" + (d.name).replace(/\s+/g, "-").toLowerCase(); })
           .attr("class", "btn btn-default")
           .text(function(d) { return d.name; });
 
-          toggle.on("click", function(d) {
-            var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-            
-            console.log(tggldLine);
-            // determine if active
-            var active = this.active ? false : true,
-            newColor = active ? function(d) {return color( d.name )} : null,
-            lineState = active ? true : false; 
-            // color the border & text or don't
+        // highlight data & button on button click
+        toggle
+          .on("click", function(d) {
+          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          // determine if active
+          var active = this.active ? false : true,
+          newColor = active ? function(d) {return color( d.name )} : null,
+          lineState = active ? true : false; 
+          // color the border & text or don't
+          d3.select(this)
+            .style("font-weight", active ? "bold" : null)
+            .style("border-color", newColor)
+            .style("color", newColor);
+          // update opacity of line element
+          d3.select(tggldLine).classed("toggled", lineState);
+          // update element state
+          this.active = active;
+        })
+        .on("mouseover", function(d) {
+          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          var newColor = function(d) {return color( d.name )};
+          // color the border & text or don't
+          d3.select(this)
+            .style("font-weight", "bold")
+            .style("border-color", newColor)
+            .style("color", newColor);
+          // update opacity of line element
+          d3.select(tggldLine).classed("toggled", true);
+        })
+        .on("mouseout", function(d) {
+          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          if (!this.active) {
             d3.select(this)
-              .style("font-weight", active ? "bold" : null)
-              .style("border-color", newColor)
-              .style("color", newColor);
+              .style("font-weight", null)
+              .style("border-color", null)
+              .style("color", null);
             // update opacity of line element
-            d3.select(tggldLine).classed("toggled", lineState);
-            // update element state
-            this.active = active;
-          });
+            d3.select(tggldLine).classed("toggled", false);
+          }
+        });
 
       });
 
