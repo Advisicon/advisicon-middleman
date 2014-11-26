@@ -350,6 +350,46 @@ keywords:
           .attr("d", function(d) { return line(d.values); })
           .attr("stroke", function(d) { return color(d.name); });
 
+        // highlight data & button on button click
+        employee
+          .on("click", function(d) {
+          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          // determine if active
+          var active = tggldBtn.active ? false : true,
+          newColor = active ? function(d) {return color( d.name )} : null,
+          lineState = active ? true : false; 
+          // color the border & text or don't
+          d3.select(tggldBtn)
+            .style("font-weight", active ? "bold" : null)
+            .style("border-color", newColor)
+            .style("color", newColor);
+          // update opacity of line element
+          d3.select(this).classed("toggled", lineState);
+          // update element state
+          tggldBtn.active = active;
+        })
+        .on("mouseover", function(d) {
+          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          var newColor = function(d) {return color( d.name )};
+          // color the border & text or don't
+          d3.select(tggldBtn)
+            .style("font-weight", "bold")
+            .style("border-color", newColor)
+            .style("color", newColor);
+          // update opacity of line element
+          d3.select(this).classed("toggled", true);
+        })
+        .on("mouseout", function(d) {
+          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+          if (!tggldBtn.active) {
+            d3.select(tggldBtn)
+              .style("font-weight", null)
+              .style("border-color", null)
+              .style("color", null);
+            // update opacity of line element
+            d3.select(this).classed("toggled", false);
+          }
+        });
         //
         // Add toggle container
         var toggles = d3.select("#first-dataset .chart").selectAll(".data-toggle")
