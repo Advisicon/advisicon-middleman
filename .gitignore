@@ -22,6 +22,5 @@
 *.swo
 *.swp
 *~
-Gemfile.lock
 bower_components
 .~lock*#
