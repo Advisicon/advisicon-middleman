@@ -24,3 +24,5 @@
 *~
 bower_components
 .~lock*#
+.powenv
+tmp/
