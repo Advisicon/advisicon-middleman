@@ -7,8 +7,8 @@ gem "middleman", "3.3.5"
 
 group :assets do
   gem "sass-rails", ">= 3.2", require: false
-  gem "therubyracer", require: false
-  gem "less-rails", require: false
+  gem "therubyracer", "0.12.1", require: false
+  gem "less-rails", "2.6.0", require: false
 end
 
 # Live-reloading plugin
@@ -21,4 +21,4 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 # Use jQuery
-gem 'jquery-rails', require: false
+gem 'jquery-rails', "3.1.2", require: false
