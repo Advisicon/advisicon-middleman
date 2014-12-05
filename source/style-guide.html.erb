@@ -273,6 +273,7 @@ keywords:
 
       var svg = d3.select("#first-dataset .chart")
         .append("svg")
+          .attr("class", "graph")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -447,6 +448,37 @@ keywords:
             d3.select(tggldLine).classed("toggled", false);
           }
         });
+
+        function resize() {
+          var width = $(".data-display .chart").width() - margin.left - margin.right;
+          x.range([0, width]);
+          y.range([height, 0]);
+          xAxis.scale(x)
+            .orient("bottom").ticks(5);
+          yAxis.scale(y)
+            .orient("left");
+
+          d3.select(".graph")
+            .attr("width", width + margin.left + margin.right);
+          svg.select(".x.axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+          svg.select(".y.axis")
+              .call(yAxis);
+
+          svg.select(".overtime")
+            .attr("width", width)
+            .attr("height", y(40));
+
+          employee.selectAll(".line")
+            .attr("d", function(d) { return line(d.values); })
+            .attr("stroke", function(d) { return color(d.name); });
+
+        }
+
+        d3.select(window).on("resize", resize);
+
+        resize();
 
       });
 
