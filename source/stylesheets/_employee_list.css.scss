@@ -1,10 +1,23 @@
 /* employee list */
+.employee-list li:nth-child(2n + 3) { clear: left; }
+@media (min-width: $screen-sm-min) {
+  .employee-list li:nth-child(2n + 3) { clear: none; }
+  .employee-list li:nth-child(4n + 5) { clear: left; }
+}
+
 .employee-list { 
   list-style: none;
   padding-left: inherit;
-  img {  }
-  .name { display:block; font-weight:bold; }
-  li { text-align: center; padding-bottom: 3em; }
+  li { 
+    @extend .col-sm-3;
+    @extend .col-xs-6;
+    text-align: center; 
+    padding-bottom: 3em; 
+  }
+  img {
+    @extend .img-circle;
+    @extend .center-block;
+  }
+  span { display: block; }
+  .name { font-weight:bold; }
 }
-
-

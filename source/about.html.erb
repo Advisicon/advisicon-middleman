@@ -96,20 +96,4 @@ keywords:
 </p>
 
 <!-- add employee list -->
-<ul class="employee-list row">
-  <% data.people.employees.each do |employee| %>
-    <li class="col-sm-3 col-xs-6">
-      <a href="<%= (employee.url.nil? || employee.url.empty?) ? '#' : employee.url  %>" title="<%= employee.name %>">
-        <% if employee.photo.nil? || employee.photo.empty? %>
-          <%= image_tag lorem.image("140"), class: "img-circle center-block" %>
-        <% else %>
-          <%= image_tag employee.photo, class: "img-circle center-block" %>
-        <% end %>
-        <span class="name"><%= employee.name %></span>
-        <%= employee.certs %>
-        <span class="title"><%= employee.title %></span>
-      </a>
-    </li>
-  <% end %>
-</ul>
-
+<%= partial "employee_list" %>
