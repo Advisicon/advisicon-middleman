@@ -1,0 +1,84 @@
+employees:
+-
+  name:  Tim Runcie
+  title: President
+  certs: MCTS, MCP, MVP, PMP
+  photo: 
+  url:   
+-
+  name:  Pam Greensky
+  title: Director of Operations
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Rick Gardner
+  title: Director of Operations for Latin America
+  certs: PMP
+  photo: 
+  url:   
+-
+  name:  Dave Bush
+  title: Senior Project Advisor
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Jeff Jacobson-Swartfager
+  title: Advisicon Press
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Chetan Patel
+  title: Senior Developer
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Chris Pfenninger
+  title: Advisicon Information Services
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Amy Wachsnicht
+  title: Project Coordinator
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Jon Kangas
+  title: SharePoint Backend Developer
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Anna Cassel
+  title: Marketing Advisor
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Ken Loewen
+  title: Director of Professional Services
+  certs: 
+  photo: 
+  url:   
+-
+  name:  April Hennerty
+  title: Office Administrator
+  certs: 
+  photo: 
+  url:   
+-
+  name:  James Rivera
+  title: Sales
+  certs: 
+  photo: 
+  url:   
+-
+  name:  Chip Harder
+  title: Sales
+  certs: 
+  photo: 
