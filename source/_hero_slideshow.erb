@@ -3,7 +3,7 @@
     <div class="fill" style="background-image:url(<%= slide.img.blank? ? "http://placehold.it/1600x1066" : "images/#{slide.img}" %>);"> 
       <div class="carousel-caption">
         <h3><%= slide.heading %></h3>
-        <p><%= slide.text %></p>
+        <p><%= markdown slide.text %></p>
         <p><%= link_to slide.cta, slide.url, class: "btn btn-default" %></p>
       </div>
     </div>

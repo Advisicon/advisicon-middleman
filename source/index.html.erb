@@ -2,6 +2,43 @@
 keywords: 
   Project Management, Portfolio Management, Consultant, Consulting, Microsoft Project Server, Project Server, Training, Microsoft partner, application development, database development, Microsoft SharePoint, MSP-Rex, PMI, PMP, Microsoft Project training, Microsoft Project Server training, project management training, Portland, Oregon, Detroit, Michigan, Washington, Seattle, Pacific Northwest, PNW, Mexico, Latin America, EPM, balanced scorecard, tools, project scheduling, Enterprise Project Management consulting, EPM consulting, project management best practices
 carousel: true
+blurbs: 
+- 
+  icon: SharePoint-13-logo.png
+  destination: #
+  heading: SharePoint Solutions.
+  byline: Better business through collaboration.
+  lead:
+    Advisicon is a Microsoft SharePoint solution consulting firm. 
+    For over 20 years, we have developed tools and educated our 
+    clients, with the sole purpose of helping them get more out of 
+    their business processes. 
+  cta: What can SharePoint 2013 do for you?
+- 
+  icon: Project-13-logo.png
+  destination: #
+  heading: Are you Project 2013 ready?
+  byline: Efficency and responsiveness via EPM governance.
+  lead:
+    The Advisicon squad is [Project 2013 ready](#), are you? 
+    Based on the powerful Microsoft Project platform, utilizing SharePoint 
+    Enterprise Server 2013. The Advisicon solution designers have been 
+    compounding upon their wisdom, customizing and beta testing the next 
+    evolution of Microsoft Project. Project 2013 is here -- be ready!! 
+  cta: Test Drive Project 2013 Online!
+- 
+  icon: Visio-13-logo.png
+  destination: #
+  heading: Visio Development.
+  byline: Project visibility with data graphics.
+  lead:
+      Through the use of Data Graphics let us help your team visualize your 
+      metrics in a simple customizable drill down format. Create, modify and 
+      integrate your company's graphics into a comprehensive no-nonsense easy 
+      to use Business Intelligence (BI) metrics tracking too. Give us a chance
+      to show you how Visio cna revolutionize your business intelligence 
+      metrics reporting.
+  cta: Show me the data!
 ---
 
 <div class="row mofo">
@@ -30,57 +67,12 @@ carousel: true
   </div>
 </div>
 
-<div class="row featurette">
-  <%= link_to image_tag("SharePoint-13-logo.png", alt: "SharePoint logo", class: "featurette-image img-responsive col-lg-2 col-lg-push-10 col-md-2 col-md-offset-1 col-md-push-10 center-block"), '#',  border: '0' %>
-  <div class="col-lg-pull-0 col-md-8 col-md-pull-0">
-    <h2 class="featurette-heading">SharePoint Solutions. 
-      <span class="text-muted">Better business through collaboration.</span>
-    </h2>
-    <p class="lead">
-      Advisicon is a Microsoft SharePoint solution consulting firm. For over 20 
-      years, we have developed tools and educated our clients, with the sole purpose
-      of helping them get more out of their business processes.
-    </p>
-    <p>
-      <%= link_to "What can SharePoint 2013 do for you?", '#', class: "btn btn-primary btn-lg active" %>
-    </p>
-  </div>
-</div>
-
-<div class="row featurette">
-  <%= link_to image_tag("Project-13-logo.png", alt: 'Project 2013', class: "featurette-image img-responsive col-lg-2 col-md-2 center-block"), '#', border: '0' %>
-  <div class="col-md-8 col-md-offset-0">
-    <h2 class="featurette-heading">Are you Project 2013 ready?
-      <span class="text-muted">Efficency and responsiveness via EPM governance.</span>
-    </h2>
-    <p class="lead">
-      The Advisicon squad is <%= link_to "Project 2013 ready, are you", '#' %>? 
-      Based on the powerful Microsoft Project platform, utilizing SharePoint 
-      Enterprise Server 2013. The Advisicon solution designers have been 
-      compounding upon their wisdom, customizing and beta testing the next 
-      evolution of Microsoft Project. Project 2013 is here &ndash; be ready!! 
-    </p>
-    <%= link_to "Test Drive Project 2013 Online!", '#', class: "bt btn-primary btn-lg active" %>
-  </div>
-</div>
-
-<div class="row featurette">
-  <%= link_to image_tag("Visio-13-logo.png", alt: "Visio logo", class: "featurette-image img-responsive col-lg-2 col-lg-push-10 offset-1 col-md-2 col-md-offset-0 col-md-push-10 center-block"), '#',  border: '0' %>
-  <div class="col-lg-pull-0 col-md-8 col-md-pull-0">
-    <h2 class="featurette-heading">Visio Development. 
-      <span class="text-muted">Project visibility with data graphics.</span>
-    </h2>
-    <p class="lead">
-      Through the use of Data Graphics let us help your team visualize your 
-      metrics in a simple customizable drill down format. Create, modify and 
-      integrate your company's graphics into a comprehensive no-nonsense easy 
-      to use Business Intelligence (BI) metrics tracking too. Give us a chance
-      to show you how Visio cna revolutionize your business intelligence 
-      metrics reporting.
-    </p>
-    <p>
-      <%= link_to "Show me the data!", '#', class: "btn btn-primary btn-lg active" %>
-    </p>
-  </div>
-</div>
-
+<% current_page.data.blurbs.each do |blurb| %>
+  <%= partial(:icon_featurette, 
+              locals: { icon: blurb.icon, 
+                destination:  blurb.destination, 
+                heading:      blurb.heading, 
+                byline:       blurb.byline, 
+                lead:         blurb.lead,
+                cta:          blurb.cta }) %>
+<% end %>
