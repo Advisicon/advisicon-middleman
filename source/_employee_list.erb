@@ -1,8 +1,8 @@
 <ul class="employee-list row">
   <% data.people.employees.each do |employee| %>
     <li>
-      <a href="<%= (employee.url.nil? || employee.url.empty?) ? '#' : employee.url  %>" title="<%= employee.name %>">
-        <% if employee.photo.nil? || employee.photo.empty? %>
+      <a href="<%= employee.url.blank? ? '#' : employee.url  %>" title="<%= employee.name %>">
+        <% if employee.photo.blank? %>
           <%= image_tag lorem.image("140") %>
         <% else %>
           <%= image_tag employee.photo %>
