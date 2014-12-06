@@ -1,0 +1,13 @@
+<section class="featurette-impact bgvid">
+  <video loop poster="/videos/<%= placeholder %>">
+    <source src="/videos/<%= mp4 %>" type="video/mp4">
+  </video>
+  <div class="featurette-content <%= lead_position.blank? || lead_position == "left" ? "" : "right" %>">
+    <h1 class="featurette-heading"><%= heading %></h1>
+    <p class="lead"><%= lead %>.</p>
+    <p>
+      <%= link_to cta, destination, class: "featurette-btn" %>
+    </p>
+  </div>
+</section>
+
