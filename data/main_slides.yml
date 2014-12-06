@@ -1,0 +1,31 @@
+slides: 
+-
+  heading:  Is your business a project management headache?
+  img:      headache.jpg
+  cta:      read more
+  url:      #
+  text:     "Advisicon delivers professional best practices-based project, program, and portfolio management consulting services throughout the United States and Latin America to enable organizations to get control over work management."
+-
+  heading:  "Setting up Project & Project Server"
+  img:      setup.jpg
+  cta:      read more
+  url:      #
+  text:     "Advisicon consultants and subject matter experts are uniquely qualified to partner with companies that are deploying Microsoft Project, Microsoft Project/Portfolio Server and SharePoint in support of a Project Management Office (PMO)."
+-
+  heading:  We specialize in SharePoint
+  img:      sharing.jpg
+  cta:      read more
+  url:      #
+  text:     "Advisicon provides end-to-end Microsoft&reg; SharePoint consulting services. Based on our proven organizational work management approach, we enable companies to configure, adopt and leverage the benefits of a collaboration technology and project management methodlogy."
+-
+  heading:  We offer comprehensive training programs
+  img:      learn.jpg
+  cta:      read more
+  url:      #
+  text:     "Advisicon delivers customized, consultatie instructor-led project managmement training based on project management best practices on the following topics using Advisicon's proprietary course manuals, process flowcharts, and electronic tools and templates."
+-
+  heading:  We offer custom application development
+  img:      code.jpg
+  cta:      read more
+  url:      #
+  text:     "Advisicon develops custom applications and code to help organizations achieve their business objectives, from integrating EPM with other SQL-based systems, to custom code and databases, to custom ERP integrations."
