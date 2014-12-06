@@ -96,61 +96,39 @@ keywords:
     <h1>Icon &amp; Small Image Featurettes</h1>
 
     <!-- EXAMPLE: Icon Featurettes -->
-    <section class="featurette">
-      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
-      <div class="featurette-content">
-        <h1 class="featurette-heading">Awesome Statement.
-          <span class="muted">Attention-grabbing byline pulls them in.</span>
-        </h1>
-        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
-        <p>
-          <%= link_to 'Call to action', '#', class: "featurette-btn" %>
-        </p>
-      </div>
-    </section>
-
-    <section class="featurette">
-      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
-      <div class="featurette-content">
-        <h1 class="featurette-heading">Images alternate sides.
-          <span class="muted">Even ones go on the left.</span>
-        </h1>
-        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
-        <p>
-          <%= link_to lorem.words(3).capitalize, '#', class: "featurette-btn" %>
-        </p>
-      </div>
-    </section>
-
-    <section class="featurette">
-      <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
-      <div class="featurette-content">
-        <h1 class="featurette-heading">The third featurette.
-          <span class="muted">Images in odd featurettes go on the right.</span>
-        </h1>
-        <p class="lead"><%= lorem.sentences((3..6).to_a.sample) %>.</p>
-        <p>
-          <%= link_to lorem.words(2).capitalize, '#', class: "featurette-btn" %>
-        </p>
-      </div>
-    </section>
+    <%= partial(:icon_featurette, 
+                locals: { icon: lorem.image('200'), 
+                  destination: "#", 
+                  heading: "Awesome Statement.", 
+                  byline: "Attention-grabbing byline pulls them in.", 
+                  lead: "#{lorem.sentences((3..6).to_a.sample)}.", 
+                  cta: "Call to action" }) %>
+    <%= partial(:icon_featurette, 
+                locals: { icon: lorem.image('200'), 
+                  destination: "#", 
+                  heading: "Images alternate sides.", 
+                  byline: "Even ones go on the left.", 
+                  lead: "#{lorem.sentences((3..6).to_a.sample)}.", 
+                  cta: lorem.words(2).capitalize }) %>
+    <%= partial(:icon_featurette, 
+                locals: { icon: lorem.image('200'), 
+                  destination: "#", 
+                  heading: "The third featurette.", 
+                  byline: "Images in odd featurettes go on the right.", 
+                  lead: "#{lorem.sentences((3..6).to_a.sample)}.", 
+                  cta: lorem.words(2).capitalize }) %>
   </section>
 
   <section class="main-content">
     <h1>Impact Featurettes</h1>
 
-    <section class="featurette-impact">
-      <%= link_to image_tag(lorem.image('600'), alt: "", class: "featurette-image"), '#',  border: '0' %>
-      <div class="featurette-content">
-        <h1 class="featurette-heading">
-          Stand out with impact featurettes.
-        </h1>
-        <p class="lead"><%= lorem.paragraph %>.</p>
-        <p>
-          <%= link_to lorem.words(3).capitalize, '#', class: "featurette-btn" %>
-        </p>
-      </div>
-    </section>
+    <%= partial(:image_impact_featurette,
+                locals: { img: lorem.image('600'), 
+                  destination: "#", 
+                  heading: "Stand out with impact featurettes.", 
+                  lead: lorem.paragraph, 
+                  cta: lorem.words(3).capitalize }) %>
+
     <section class="featurette-impact">
       <video controls poster="/videos/placeholder4.png" class="featurette-video">
         <source src="/videos/placeholder4.mp4" type="video/mp4">

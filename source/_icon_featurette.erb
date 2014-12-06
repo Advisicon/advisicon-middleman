@@ -1,0 +1,19 @@
+<section class="featurette">
+  <% if icon.nil? || icon.empty? %>
+    <%= link_to image_tag(lorem.image('200'), alt: "", class: "featurette-image"), '#',  border: '0' %>
+  <% else %>
+    <%= link_to image_tag(icon, class: "featurette-image"), destination, border: '0' %>
+  <% end %>
+  <div class="featurette-content">
+    <h1 class="featurette-heading"><%= heading %>
+      <% if !byline.nil? || !byline.empty? %>
+        <span class="muted"><%= byline %></span>
+      <% end %>
+    </h1>
+    <p class="lead"><%= lead %></p>
+    <p>
+      <%= link_to 'Call to action', destination, class: "featurette-btn" %>
+    </p>
+  </div>
+</section>
+
