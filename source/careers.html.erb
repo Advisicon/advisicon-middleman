@@ -27,45 +27,33 @@ keywords: Job, Career, social media, marketing, IT, Project Management, Portfoli
       Are you looking to join our knowledgble team of experts? Advisicon is 
       always seeking well-qualified, motivated individuals to join our team.
     </p>
-    <p>
-      <%= link_to "Work with us", '#', class: "btn btn-default" %>
-    </p>
   </section>
 </div>
-<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="careerApplicantName" class="col-sm-3 col-md-4 control-label" required>Full Name</label>
-    <div class="col-sm-9 col-md-8">
-      <input type="text" class="form-control" id="careerApplicantName" placeholder="Enter name">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="careerApplicantEmail" class="col-sm-3 col-md-4 control-label" required>Email</label>
-    <div class="col-sm-9 col-md-8">
-      <input type="email" class="form-control" id="careerApplicantEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group" required>
-    <label for="careerApplicantAboutMe" class="col-sm-3 col-md-4 control-label">Why I Want to Work with Advisicon</label>
-    <div class="col-sm-9 col-md-8">
-      <textarea class="form-control" id="careerApplicantAboutMe" rows="10" maxlength="2000" placeholder="About me" required></textarea>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-3 col-md-4 control-label">
-      <label for="careerApplicantWebsite">Website</label>
-    </div>
-    <div class="col-sm-9 col-md-8">
-      <span class="help-block">A link to your professional website.</span>
-      <input type="url" class="form-control" id="careerApplicantUrl" placeholder="http://example.com (optional)">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-3 col-md-4 control-label">
-      <label for="careerApplicantResume">Upload Your Resume</label>
-    </div>
-    <div class="col-sm-9 col-md-8">
-      <input type="file" class="form-control" id="careerApplicantResume">
-    </div>
-  </div>
+<form action="#" id="" class="training form" role="form">
+
+  <fieldset>
+    <label for="careerApplicantName" required>Full Name</label>
+    <input type="text" id="careerApplicantName" placeholder="Enter name">
+  </fieldset>
+
+  <fieldset>
+    <label for="careerApplicantEmail" required>Email</label>
+    <input type="email" id="careerApplicantEmail" placeholder="Email">
+  </fieldset>
+
+  <fieldset>
+    <label for="careerApplicantAboutMe">Why I Want to Work with Advisicon</label>
+    <textarea id="careerApplicantAboutMe" rows="10" maxlength="2000" placeholder="About me" required></textarea>
+  </fieldset>
+
+  <fieldset>
+    <label for="careerApplicantWebsite">Website</label>
+    <p>A link to your professional website.</p>
+    <input type="url" id="careerApplicantUrl" placeholder="http://example.com (optional)">
+  </fieldset>
+
+  <fieldset>
+    <label for="careerApplicantResume">Upload Your Resume</label>
+    <input type="file" id="careerApplicantResume">
+  </fieldset>
 </form>
