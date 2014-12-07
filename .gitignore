@@ -17,6 +17,19 @@
 # Ignore .DS_store file
 .DS_Store
 
+# Ignore employee photos
+jeff-jacobson-swartfager.jpg
+pam-greensky.jpg
+chetan-patel.jpg
+chris-pfenninger.jpg
+amy-wachsnicht.jpg
+jon-kangas.jpg
+anna-cassel.jpg
+rick-gardner.jpg
+dave-bush.jpg
+ken-loewen.jpg
+tim-runcie.jpg
+
 # Ignore other unneeded files
 .secret
 *.swo
@@ -26,3 +39,5 @@ bower_components
 .~lock*#
 .powenv
 tmp/
+
+

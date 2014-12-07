@@ -14,10 +14,14 @@
     text-align: center; 
     padding-bottom: 3em; 
   }
-  img {
+  a div {
     @extend .img-circle;
     @extend .center-block;
+    overflow: hidden;
+    height: 140px;
+    width: 140px;
   }
+  img { display: block; width: 100%; height: auto; }
   span { display: block; }
   .name { font-weight:bold; }
 }
