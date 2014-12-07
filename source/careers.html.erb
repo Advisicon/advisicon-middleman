@@ -2,61 +2,36 @@
 title: Careers
 keywords: Job, Career, social media, marketing, IT, Project Management, Portfolio Management, Microsoft Project Server, Project Server, Microsoft SharePoint, EPM
 ---
-<div class="carousel carousel-inner splash">
-  <div class="fill" style="background-image:url(http://placehold.it/1600x1066);">
-    <div class="carousel-caption">
-      <h3>Join the Team</h3>
-      <p>
-        Are you looking to join our knowledgble team of experts? Advisicon is 
-        always seeking well-qualified, motivated individuals to join our team.
-      </p>
-      <p>
-        <%= link_to "Work with us", '#', class: "btn btn-default" %>
-      </p>
-    </div>
-  </div>
-</div>
+
 
 <h1>Careers</h1>
-<p><%= lorem.paragraph %>
+<section id="jobs">
+  <% data.job_openings.each do |department| %>
+    <% if department[1] %>
+      <section class="text-block">
+        <h1><%= department[0].to_s.gsub("_", " ") %></h1>
+        <% data.job_openings["#{department[0]}"].each do |job| %>
+          <h2><%= link_to job.title, job.destination %></h2>
+          <p><%= job.lead %></p>
+          <p><%= link_to "[See details]", job.destination %></p>
+        <% end %>
+      </section>
+    <% end %>
+  <% end %>
+</section>
 
-<% if @marketing_jobs %>
-  <h2>Marketing</h2>
-  <%= list_jobs(@marketing_jobs) %>
-<% end %>
-<% if @operations_jobs %>
-  <h2>Operations</h2>
-  <%= list_jobs(@operations_jobs) %>
-<% end %>
-<% if @information_security_jobs %>
-  <h2>Information Security</h2>
-  <%= list_jobs(@information_security_jobs) %>
-<% end %>
-<% if @design_jobs %>
-  <h2>Design</h2>
-  <%= list_jobs(@design_jobs) %>
-<% end %>
-<% if @products_jobs %>
-  <h2>Products</h2>
-  <%= list_jobs(@products_jobs) %>
-<% end %>
-<% if @sales_jobs %>
-  <h2>Sales</h2>
-  <%= list_jobs(@sales_jobs) %>
-<% end %>
-<% if @executive_team_jobs %>
-  <h2>Executive Team</h2>
-  <%= list_jobs(@executive_team_jobs) %>
-<% end %>
-<% if @customer_success_jobs %>
-  <h2>Customer Success</h2>
-  <%= list_jobs(@customer_success) %>
-<% end %>
-<% if @human_resources_jobs %>
-  <h2>Human Resources</h2>
-  <%= list_jobs(@human_resources) %>
-<% end %>
-
+<div class="row">
+  <section class="text-block">
+    <h1>Join the Team</h1>
+    <p>
+      Are you looking to join our knowledgble team of experts? Advisicon is 
+      always seeking well-qualified, motivated individuals to join our team.
+    </p>
+    <p>
+      <%= link_to "Work with us", '#', class: "btn btn-default" %>
+    </p>
+  </section>
+</div>
 <form class="form-horizontal" role="form">
   <div class="form-group">
     <label for="careerApplicantName" class="col-sm-3 col-md-4 control-label" required>Full Name</label>

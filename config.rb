@@ -36,18 +36,10 @@
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
- configure :development do
-   activate :livereload
- end
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
 helpers do
-  def list_jobs(job_category)
-    job_category.each do |job|
-      job_list += "<li><a href='#{ job.url }'>#{ job.title }</a></li>"
-    end
-    return "<ul>#{job_list}</ul>"
-  end
 end
 
 

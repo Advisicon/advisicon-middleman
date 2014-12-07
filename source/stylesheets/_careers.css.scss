@@ -1,0 +1,6 @@
+#jobs .text-block {
+  margin-top: 3em;
+  margin-bottom: 5em;
+  h1 { @extend .h2; }
+  h2 { @extend .h3; }
+}
