@@ -23,7 +23,7 @@ keywords:
         <h1><%= link_to course.title, "training/#{course.url}" %></h1>
         <p><%= course.lead.blank? ? lorem.paragraph : markdown(course.lead) %></p>
         <p>
-          <%= link_to course.cta, "/training/#{course.url}", class: "btn btn-primary btn-lg active" %>
+          <%= link_to course.cta, "/training/#{course.url}", class: "cta-btn" %>
         </p>
       </li>
     <% end %>

@@ -13,7 +13,7 @@ keywords: Job, Career, social media, marketing, IT, Project Management, Portfoli
         <% data.job_openings["#{department[0]}"].each do |job| %>
           <h2><%= link_to job.title, job.destination %></h2>
           <p><%= job.lead %></p>
-          <p><%= link_to "[See details]", job.destination %></p>
+          <p><%= link_to "See details", job.destination, class: "cta-btn" %></p>
         <% end %>
       </section>
     <% end %>

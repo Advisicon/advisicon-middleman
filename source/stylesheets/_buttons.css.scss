@@ -1,0 +1,8 @@
+.cta-btn {
+  @extend .btn;
+  @extend .btn-default;
+  &:hover,
+  &:focus {
+    @extend .active;
+  }
+}
