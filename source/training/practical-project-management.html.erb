@@ -4,30 +4,27 @@ keywords:
 ---
 
 <article class="row">
-  <div class="jumbotron">
+  <div class="key-content">
     <h1>Practical Project Management</h1>
 
     <p><%= lorem.paragraph %>.</p>
   </div>
 
-  <section id="product-intro" class="col-md-6 col-md-offset-3">
+  <section class="text-block">
     <p><%= lorem.paragraph %>.</p>
   </section>
 
   <section class="secondary-content">
-  <section class="featurette-impact bgvid">
-    <video loop poster="/videos/placeholder4.png">
-      <source src="/videos/placeholder4.mp4" type="video/mp4">
-    </video>
-    <div class="featurette-content right">
-      <h1 class="featurette-heading">
-        Manage Your Projects, Practically.
-      </h1>
-      <p class="lead">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-      <p>
-        <%= link_to 'Register now', '#order', class: "cta-btn expand-form" %>
-      </p>
-  </section>
+    <%= partial(:background_video_featurette, 
+                locals: { placeholder: "placeholder4.png", 
+                  mp4: "placeholder4.mp4", 
+                  heading: "Manage Your Projects, Practically.", 
+                  lead: "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.", 
+                  lead_position: "", 
+                  cta: { text: "Register now", hook: "expand-form" }, 
+                  destination: "#order" }) %>
+    
+
 </section>
   <section id="product-description" class="col-md-6 col-md-offset-3">
     <p>

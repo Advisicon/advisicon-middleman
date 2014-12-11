@@ -4,9 +4,13 @@
   </video>
   <div class="featurette-content <%= lead_position.blank? || lead_position == "left" ? "" : "right" %>">
     <h1 class="featurette-heading"><%= heading %></h1>
-    <div class="lead"><%= markdown lead %>.</div>
+    <div class="lead"><%= markdown lead %></div>
     <p>
-      <%= link_to cta, destination, class: "cta-btn" %>
+      <% if cta.is_a? Hash %>
+        <%= link_to cta[:text], destination, class: "cta-btn#{" " + cta[:hook]}" %>
+      <% else %>
+        <%= link_to cta, destination, class: "cta-btn" %>
+      <% end %>
     </p>
   </div>
 </section>

@@ -118,3 +118,10 @@
   //svg { top:0; bottom:0; left:0; right:0;  }
   .data-display-content { clear: left; @extend .col-md-6; @extend .col-md-offset-3; }
 }
+
+.key-content {
+  @extend .jumbotron;
+  margin-top: -3em;
+  padding-top: 5em;
+}
+

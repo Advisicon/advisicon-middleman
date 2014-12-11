@@ -144,14 +144,14 @@ keywords:
                 locals: { img: lorem.image('600'), 
                   destination: "#", 
                   heading: "Stand out with impact featurettes.", 
-                  lead: lorem.paragraph, 
+                  lead: "#{lorem.paragraph}.", 
                   cta: lorem.words(3).capitalize }) %>
 
     <%= partial(:video_impact_featurette, 
                 locals: { placeholder: "placeholder4.png", 
                   mp4: "placeholder4.mp4", 
                   heading: "Bring your content alive with videos.", 
-                  lead: lorem.paragraph, 
+                  lead: "#{lorem.paragraph}.", 
                   cta: lorem.words(3).capitalize, 
                   destination: "#" }) %>
   </section>
@@ -161,7 +161,7 @@ keywords:
                 locals: { placeholder: "placeholder3.png", 
                   mp4: "placeholder3.mp4", 
                   heading: "Use subtle background video to support your content.", 
-                  lead: lorem.sentences((6..24).to_a.sample),
+                  lead: "#{lorem.sentences((6..24).to_a.sample)}.",
                   lead_position: "",
                   cta: lorem.words(3).capitalize, 
                   destination: "#" }) %>
@@ -169,9 +169,9 @@ keywords:
                 locals: { placeholder: "placeholder.png", 
                   mp4: "placeholder.mp4", 
                   heading: "You can switch the position of the background video content from left to right.", 
-                  lead: lorem.sentences((6..24).to_a.sample),
+                  lead: "The call to action can have a hook applied. In this case, the hook is \"sample.\"\n\n#{lorem.sentences((6..24).to_a.sample)}.",
                   lead_position: "right",
-                  cta: lorem.words(3).capitalize, 
+                  cta: { text: lorem.words(3).capitalize, hook: "sample" }, 
                   destination: "#" }) %>
   </section>
 
@@ -463,6 +463,33 @@ keywords:
       <p>Advisicon's weekly hourly totals for all work.</p>
     </div>
 
+  </section>
+
+  <section class="text-block">
+    <h1>Top level heading</h1>
+    <p>A paragraph with a <%= link_to "link", "#" %>.</p>
+    <h2>A second level heading</h2>
+    <p>Below is a bulleted list.</p>
+    <ul>
+      <li>An item.</li>
+      <li>Another item.</li>
+      <li>This is an item too.</li>
+    </ul>
+    <h3>A third level heading</h3>
+    <p>Below is an ordered list.</p>
+    <ol>
+      <li>First item.</li>
+      <li>Next item.</li>
+      <li>Last item.</li>
+    </ol>
+    <h4>A fourth level heading</h4>
+    <p>Below is a block of quoted text.</p>
+    <blockquote>
+      I know kung-fu.
+      <footer>
+        <cite><a href="https://www.youtube.com/watch?v=6vMO3XmNXe4">Neo</a> in The Matrix</cite>
+      </footer>
+    </blockquote>
   </section>
 
 </div>
