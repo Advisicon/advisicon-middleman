@@ -21,3 +21,14 @@ form {
     }
   }
 }
+
+form { 
+  .contact-info {
+    fieldset.contact-name { 
+      @extend .col-lg-6;
+    }
+  }
+  .email {
+    fieldset.email { @extend .col-md-6; }
+  }
+}
