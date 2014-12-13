@@ -140,6 +140,63 @@ keywords:
     <p>
       Gathering credit card information (in order to process it for purchases) is a regular occurance.
     </p>
+    <div id="card-info">
+      <h2>About the card</h2>
+      <div class="row">
+        <fieldset class="col-lg-9">
+          <label for="ccNumber">Credit card number</label>
+          <input type="text" name="ccNumber" id="ccNumber" required>
+        </fieldset>
+        <fieldset class="col-lg-3">
+          <label for="ccCvv">CVV</label>
+          <input type="text" name="ccCvv" id="ccCvv" required>
+        </fieldset>
+      </div>
+      <fieldset>
+        <label for="nameOnCard">Name on the card</label>
+        <input type="text" id="nameOnCard" placeholder="John Doe" required>
+      </fieldset>
+      <div class="row">
+        <fieldset class="col-lg-9">
+          <label for="ccStreetAdr1">Billing Street Address</label>
+          <input type="text" name="ccStreetAdr1" id="ccStreetAdr1" placeholder="5411 NE 107th Ave." required>
+        </fieldset>
+        <fieldset class="col-lg-3">
+          <label for="ccStreetAdr2">Suite/Apartment</label>
+          <input type="text" name="ccStreetAdr2" id="ccStreetAdr2" placeholder="Suite 200">
+        </fieldset>
+      </div>
+      <div class="row">
+        <fieldset class="col-lg-7">
+          <label for="ccLocality">City</label>
+          <input type="text" name="ccLocality" id="ccLocality" placeholder="Vancouver" required>
+        </fieldset>
+        <fieldset class="col-lg-5">
+          <label for="ccRegion">State/Province</label>
+          <input type="text" name="billingRegion" id="billingRegion" placeholder="Washington" required>
+        </fieldset>
+      </div>
+      <div class="row">
+        <fieldset class="col-lg-4">
+          <label for="ccPostalCode">Postal Code</label>
+          <input type="text" name="billingPostalCode" id="billingPostalCode" placeholder="98662" required>
+        </fieldset>
+        <fieldset class="col-lg-8">
+          <label for="ccCountry">Country</label>
+          <input type="text" name="billingCountry" id="billingCountry" placeholder="United States" list="countries" required>
+          <datalist id="countries">
+            <option value="United States">
+            <option value="Canada">
+            <option value="France">
+            <option value="Germany">
+            <option value="Italy">
+            <option value="Japan">
+            <option value="Russia">
+            <option value="United Kingdom">
+          </datalist>
+        </fieldset>
+      </div>
+    </div>
   </form>
 
   <section class="main-content">
