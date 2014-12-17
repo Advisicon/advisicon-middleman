@@ -48,22 +48,8 @@ keywords:
     <div id="buyer-info">
       <h2>About You</h2>
       <p>In case there are any issues with your purchase, we need to be able to contact you.</p>
-      <fieldset>
-        <label for="buyerFirstName">Your first name</label>
-        <input type="text" id="buyerFirstName" name="buyerFirstName" class="form-control" placeholder="John" required>
-      </fieldset>
-      <fieldset>
-        <label for="buyerLastName">Your last name</label>
-        <input type="text" id="buyerLastName" name="buyerLastName" placeholder="Doe" required>
-      </fieldset>
-      <fieldset>
-        <label for="buyerEmail">Email</label>
-        <input type="email" id="buyerEmail" name="buyerEmail" placeholder="Enter email" required>
-      </fieldset>
-      <fieldset>
-        <label for="buyerEmailConfirmation">Confirm email</label>
-        <input type="email" id="buyerEmailConfirmation" name="buyerEmailConfirmation" placeholder="Just checking for typos" required>
-      </fieldset>
+      <%= partial("/partial/form/contact_info", 
+                  locals: { contact: "buyer" }) %>
     </div>
     <%= partial "partial/form/card_info" %>
     <div id="recipient-info">

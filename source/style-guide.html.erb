@@ -118,24 +118,7 @@ keywords:
       Use this to gather information about purchaser identity, newsletter
       registration, and the like.
     </p>
-    <div id="buyer" class="contact-info">
-      <fieldset>
-        <label for="firstName">Your first name</label>
-        <input type="text" id="firstName" name="firstName" placeholder="John" required>
-      </fieldset>
-      <fieldset>
-        <label for="lastName">Your last name</label>
-        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
-      </fieldset>
-      <fieldset>
-        <label for="contactEmail">Email</label>
-        <input type="email" id="contactEmail" name="contactEmail" placeholder="Enter email" required>
-      </fieldset>
-      <fieldset>
-        <label for="contactEmailConfirmation">Confirm email</label>
-        <input type="email" id="contactEmailConfirmation" name="contactEmailConfirmation" placeholder="Just checking for typos" required>
-      </fieldset>
-    </div>
+    <%= partial("/partial/form/contact_info", locals: {contact: "buyer"}) %>
     <h3>Credit Card Info</h3>
     <p>
       Gathering credit card information (in order to process it for purchases) is a regular occurance.
