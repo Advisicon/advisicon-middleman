@@ -1,0 +1,50 @@
+<% if defined? address_type %>
+  <% case address_type %>
+  <% when "billing" %>
+    <% prefix = "cc" %>
+  <% when "shipping" %>
+    <% prefix = "shipping" %>
+  <% end %>
+<% end %>
+
+<div class="address">
+  <fieldset class="street">
+    <label for="<%= prefix %>StreetAdr1">Billing Street Address</label>
+    <input type="text" name="<%= prefix %>StreetAdr1" id="<%= prefix %>StreetAdr1" placeholder="5411 NE 107th Ave." required>
+  </fieldset>
+  <fieldset class="apt">
+    <label for="<%= prefix %>StreetAdr2">Suite/Apartment</label>
+    <input type="text" name="<%= prefix %>StreetAdr2" id="<%= prefix %>StreetAdr2" placeholder="Suite 200">
+  </fieldset>
+</div>
+<div class="region">
+  <fieldset class="city">
+    <label for="<%= prefix %>Locality">City</label>
+    <input type="text" name="<%= prefix %>Locality" id="<%= prefix %>Locality" placeholder="Vancouver" required>
+  </fieldset>
+  <fieldset class="state">
+    <label for="<%= prefix %>Region">State/Province</label>
+    <input type="text" name="<%= prefix %>Region" id="<%= prefix %>Region" placeholder="Washington" required>
+  </fieldset>
+  <fieldset class="zip">
+    <label for="<%= prefix %>PostalCode">Postal Code</label>
+    <input type="text" name="<%= prefix %>PostalCode" id="<%= prefix %>PostalCode" placeholder="98662" required>
+  </fieldset>
+</div>
+<div class="nationality">
+  <fieldset class="nation">
+    <label for="<%= prefix %>Country">Country</label>
+    <input type="text" name="<%= prefix %>Country" id="<%= prefix %>Country" placeholder="United States" list="countries" required>
+    <datalist id="countries">
+      <option value="United States">
+      <option value="Canada">
+      <option value="France">
+      <option value="Germany">
+      <option value="Italy">
+      <option value="Japan">
+      <option value="Russia">
+      <option value="United Kingdom">
+    </datalist>
+  </fieldset>
+</div>
+

@@ -124,6 +124,43 @@ keywords:
       Gathering credit card information (in order to process it for purchases) is a regular occurance.
     </p>
     <%= partial "partial/form/card_info" %>
+    <div id="recipient-info">
+      <h4>Shipping Destination</h4>
+      <p>If the something needs to get shipped as a result of a purchase, assume that the shipping destination is the same as the billing address and don't require shipping address entry. However, we still need to allow a shipping address that differs from the billing address.</p>
+      <%= partial "/partial/form/shipping_matches_billing_test" %>
+      <div id="shipping-address">
+        <div class="address">
+          <fieldset class="street">
+            <label for="shippingStreetAddress1">Street Address</label>
+            <input type="text" name="shippingStreetAddress1" id="shippingStreetAddress1">
+          </fieldset>
+          <fieldset class="apt">
+            <label for="shippingStreetAddress2">Suite/Apartment</label>
+            <input type="text" name="shippingStreetAddress2" id="shippingStreetAddress2">
+          </fieldset>
+        </div>
+        <div class="region">
+          <fieldset class="city">
+            <label for="shippingLocality" required>City</label>
+            <input type="text" name="shippingLocality" id="shippingLocality">
+          </fieldset>
+          <fieldset class="state">
+            <label for="shippingRegion" required>State/Province</label>
+            <input type="text" name="shippingRegion" id="shippingRegion">
+          </fieldset>
+          <fieldset class="zip">
+            <label for="shippingPostalCode" required>Postal Code</label>
+            <input type="text" name="shippingPostalCode" id="shippingPostalCode">
+          </fieldset>
+        </div>
+        <div class="nationality">
+          <fieldset class="nation">
+            <label for="shippingCountry" required>Country</label>
+            <input type="text" name="shippingCountry" id="shippingCountry" list="countries">
+          </fieldset>
+        </div>
+      </div>
+    </div>
   </form>
 
   <section class="main-content">

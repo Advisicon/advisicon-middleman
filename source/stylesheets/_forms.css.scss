@@ -31,7 +31,8 @@ form {
   .email {
     fieldset.email { @extend .col-md-6; }
   }
-  #card-info { 
+  #card-info,
+  #shipping-address { 
     .card { @extend .row; } 
     .card .number { @extend .col-lg-9; }
     .card .cvv { @extend .col-lg-3; }

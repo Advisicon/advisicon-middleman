@@ -5,12 +5,12 @@ $(function() {                                                          // load 
   //
   
   function FillShippingInfo() {
-    $('#shippingStreetAddress1').val($('#billingStreetAdr1').val());
-    $('#shippingStreetAddress2').val($('#billingStreetAdr2').val());
-    $('#shippingLocality').val($('#billingLocality').val());
-    $('#shippingRegion').val($('#billingRegion').val());
-    $('#shippingPostalCode').val($('#billingPostalCode').val());
-    $('#shippingCountry').val($('#billingCountry').val());
+    $('#shippingStreetAddress1').val($('#ccStreetAdr1').val());
+    $('#shippingStreetAddress2').val($('#ccStreetAdr2').val());
+    $('#shippingLocality').val($('#ccLocality').val());
+    $('#shippingRegion').val($('#ccRegion').val());
+    $('#shippingPostalCode').val($('#ccPostalCode').val());
+    $('#shippingCountry').val($('#ccCountry').val());
   };
   
   // they have jquery loaded, hide the shipping address inputs
