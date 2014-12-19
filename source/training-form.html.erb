@@ -45,46 +45,8 @@ shopping: true
     <div id="recipient-info">
       <h2>Shipping Destination</h2>
       <p>Ship your tickets to the billing address?</p>
-      <fieldset class="radio-group">
-        <label class="radio">
-          <input type="radio" name="shippingMatchesBilling" id="shippingMatchesBilling" value="true" checked>Yes
-        </label>
-        <label class="radio">
-          <input type="radio" name="shippingMatchesBilling" id="shippingMatchesBilling" value="false">No
-        </label>
-      </fieldset>
-      <div id="shipping-address">
-        <div class="row">
-          <fieldset class="col-lg-9">
-            <label for="shippingStreetAddress1">Shipping Street Address</label>
-            <input type="text" name="shippingStreetAddress1" id="shippingStreetAddress1">
-          </fieldset>
-          <fieldset class="col-lg-3">
-            <label for="shippingStreetAddress2">Suite/Apartment</label>
-            <input type="text" name="shippingStreetAddress2" id="shippingStreetAddress2">
-          </fieldset>
-        </div>
-        <div class="row">
-          <fieldset class="col-lg-7">
-            <label for="shippingLocality" required>Shipping City</label>
-            <input type="text" name="shippingLocality" id="shippingLocality">
-          </fieldset>
-          <fieldset class="col-lg-5">
-            <label for="shippingRegion" required>Shipping State/Province</label>
-            <input type="text" name="shippingRegion" id="shippingRegion">
-          </fieldset>
-        </div>
-        <div class="row">
-          <fieldset class="col-lg-4">
-            <label for="shippingPostalCode" required>Shipping Postal Code</label>
-            <input type="text" name="shippingPostalCode" id="shippingPostalCode">
-          </fieldset>
-          <fieldset class="col-lg-8">
-            <label for="shippingCountry" required>Shipping Country</label>
-            <input type="text" name="shippingCountry" id="shippingCountry" list="countries">
-          </fieldset>
-        </div>
-      </div>
+      <%= partial "/partial/form/shipping_matches_billing_test" %>
+      <%= partial("/partial/form/address", locals: { address_type: "shipping" }) %>
     </div>
     <button type="submit">Submit</button>
   </form>

@@ -31,19 +31,24 @@ form {
   .email {
     fieldset.email { @extend .col-md-6; }
   }
-  #card-info,
-  #shipping-address { 
+  #card-info { 
     .card { @extend .row; } 
     .card .number { @extend .col-lg-9; }
     .card .cvv { @extend .col-lg-3; }
-    .address { @extend .row; }
-    .address .street { @extend .col-lg-9; }
-    .address .apt { @extend .col-lg-3; }
-    .region { @extend .row; }
-    .region .city { @extend .col-lg-6; }
-    .region .state { @extend .col-lg-3; }
-    .region .zip { @extend .col-lg-3; }
-    .nationality { @extend .row; }
-    .nationality .nation { @extend .col-lg-8; }
+  }
+  .address {
+    @extend .row; 
+    .street { @extend .col-lg-9; }
+    .apt { @extend .col-lg-3; }
+  }
+  .region {  
+    @extend .row;
+    .city { @extend .col-lg-6; }
+    .state { @extend .col-lg-3; }
+    .zip { @extend .col-lg-3; }
+  }
+  .nationality { 
+    @extend .row; 
+    .nation { @extend .col-lg-8; }
   }
 }

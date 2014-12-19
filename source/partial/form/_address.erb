@@ -7,9 +7,10 @@
   <% end %>
 <% end %>
 
+<% if prefix == "shipping" %><div id="shipping-address"><% end %>
 <div class="address">
   <fieldset class="street">
-    <label for="<%= prefix %>StreetAdr1">Billing Street Address</label>
+    <label for="<%= prefix %>StreetAdr1">Street Address</label>
     <input type="text" name="<%= prefix %>StreetAdr1" id="<%= prefix %>StreetAdr1" placeholder="5411 NE 107th Ave." required>
   </fieldset>
   <fieldset class="apt">
@@ -47,4 +48,5 @@
     </datalist>
   </fieldset>
 </div>
+<% if prefix == "shipping" %></div><% end %>
 
