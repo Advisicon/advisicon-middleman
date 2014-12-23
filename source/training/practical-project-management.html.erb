@@ -1,6 +1,16 @@
 ---
 title: Practical Project Management
 keywords:
+tickets:
+-
+  type:   General Admission + Afterparty
+  sku:    gen_admin_and_party
+  price:  50
+-
+  type:   General Admission
+  sku:    gen_admin
+  price:  40
+
 ---
 
 <article class="row">
@@ -27,39 +37,5 @@ keywords:
   <%= partial(:product_description, 
               locals: { text: lorem.paragraphs(3), 
                 cta: "Register now!" }) %>
+  <%= partial :registration_form %>
 </article>
-
-<section class="row">
-  <form action="/" id="order" class="training form" role="form">
-    <h2>Tickets</h2>
-    <p>Choose your ticket from among the following options</p>
-    <fieldset>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="ticket" value="1">General Admission + Afterparty ($50)
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="ticket" value="2">General Admission ($40)
-        </label>
-      </div>
-    </fieldset>
-    <div id="buyer-info">
-      <h2>About You</h2>
-      <p>In case there are any issues with your purchase, we need to be able to contact you.</p>
-      <%= partial("/partial/form/contact_info", 
-                  locals: { contact: "buyer" }) %>
-    </div>
-    <%= partial "partial/form/card_info" %>
-    <div id="recipient-info">
-      <h2>Shipping Destination</h2>
-      <p>Ship your tickets to the billing address?</p>
-      <%= partial "/partial/form/shipping_matches_billing_test" %>
-      <%= partial("/partial/form/address", locals: { address_type: "shipping" }) %>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-  <div id="result"></div>
-</section>
-
