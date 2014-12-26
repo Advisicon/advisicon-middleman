@@ -217,6 +217,7 @@ tickets:
         fill: none;
       }
       .employee .line { 
+        stroke: #aaa;
         stroke-opacity: 0.125;
         stroke-width: 2;
         -webkit-transition: all .25s ease-in-out;
@@ -231,6 +232,8 @@ tickets:
         font-size: 1.125em;
         font-weight: bold;
       }
+      .employee .line:hover {   stroke: #333333; rgba(20,20,20,0.5); }
+      .employee .line.toggled { stroke: #c83232; rgba(200,50,50,1); }
       .axis path,
       .axis line {
         fill: none;
@@ -243,13 +246,6 @@ tickets:
       .overtime { 
         fill: #fdd;
         fill: rgba(255,0,0,.0625);
-      }
-      .data-toggle button {
-        margin-bottom: 1em;
-        -webkit-transition: all .25s ease-in-out;
-        -moz-transition: all .25s ease-in-out;
-        -o-transition: all .25s ease-in-out;
-        transition: all .25s ease-in-out;
       }
     </style>
     <script type="text/javascript">
@@ -290,7 +286,7 @@ tickets:
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       // Get the data
-      d3.tsv("/data/hours.tsv", function(error, data) {
+      d3.tsv("/data/total_hours.tsv", function(error, data) {
         color.domain(d3.keys(data[0]).filter(function(key) {
           return key !== "date";
         }));
@@ -361,103 +357,44 @@ tickets:
           .attr("d", function(d) { return line(d.values); })
           .attr("stroke", function(d) { return color(d.name); });
 
-        // highlight data & button on button click
-        employee
-          .on("click", function(d) {
-          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          // determine if active
-          var active = tggldBtn.active ? false : true,
-          newColor = active ? function(d) {return color( d.name )} : null,
-          lineState = active ? true : false; 
-          // color the border & text or don't
-          d3.select(tggldBtn)
-            .style("font-weight", active ? "bold" : null)
-            .style("border-color", newColor)
-            .style("color", newColor);
-          // update opacity of line element
-          d3.select(this).classed("toggled", lineState);
-          // update element state
-          tggldBtn.active = active;
-        })
-        .on("mouseover", function(d) {
-          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          var newColor = function(d) {return color( d.name )};
-          // color the border & text or don't
-          d3.select(tggldBtn)
-            .style("font-weight", "bold")
-            .style("border-color", newColor)
-            .style("color", newColor);
-          // update opacity of line element
-          d3.select(this).classed("toggled", true);
-        })
-        .on("mouseout", function(d) {
-          var tggldBtn = "#toggle-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          if (!tggldBtn.active) {
-            d3.select(tggldBtn)
-              .style("font-weight", null)
-              .style("border-color", null)
-              .style("color", null);
-            // update opacity of line element
-            d3.select(this).classed("toggled", false);
-          }
-        });
-        //
-        // Add toggle container
-        var toggles = d3.select("#first-dataset .chart").selectAll(".data-toggle")
-            .data(employees)
-          .enter().append("div")
-          .attr("class", "data-toggle col-sm-3 col-xs-6");
+        // Add toggle lists
+        var data_toggle_form = d3.select("#first-dataset .chart").append("form")
+          .classed('training form', true);
 
-        // Add toggle button
-        var toggle = toggles.append("button")
-            .datum(function(d) {
-              return {name: d.name, value: d.values[d.values.length - 1]};
-            })
-          .attr("type", "button")
-          .attr("id", function(d) { return "toggle-" + (d.name).replace(/\s+/g, "-").toLowerCase(); })
-          .attr("class", "btn btn-default")
-          .text(function(d) { return d.name; });
+        data_toggle_form.append("p").text("Select employees to view their time.");
+
+        var data_toggle_list = data_toggle_form.append("select")
+          .attr('id', 'data-toggle-list')
+          .classed("form-control", true);
+
+        var employee_toggle_list_items = data_toggle_list.selectAll("option")
+          .data(employees)
+        .enter().append("option")
+          .datum(function(d) { return { name: d.name, value: d.values[d.values.length - 1] } })
+          .text(function(d) { return d.name })
+          .attr('value', function(d) { return d.name });
+
 
         // highlight data & button on button click
-        toggle
-          .on("click", function(d) {
-          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          // determine if active
-          var active = this.active ? false : true,
-          newColor = active ? function(d) {return color( d.name )} : null,
-          lineState = active ? true : false; 
-          // color the border & text or don't
-          d3.select(this)
-            .style("font-weight", active ? "bold" : null)
-            .style("border-color", newColor)
-            .style("color", newColor);
-          // update opacity of line element
-          d3.select(tggldLine).classed("toggled", lineState);
-          // update element state
-          this.active = active;
-        })
-        .on("mouseover", function(d) {
-          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          var newColor = function(d) {return color( d.name )};
-          // color the border & text or don't
-          d3.select(this)
-            .style("font-weight", "bold")
-            .style("border-color", newColor)
-            .style("color", newColor);
-          // update opacity of line element
-          d3.select(tggldLine).classed("toggled", true);
-        })
-        .on("mouseout", function(d) {
-          var tggldLine = "#line-" + (d.name).replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
-          if (!this.active) {
-            d3.select(this)
-              .style("font-weight", null)
-              .style("border-color", null)
-              .style("color", null);
+        
+        var toggleLine = function() {
+            var key = d3.event.target.value;
+            var index = d3.event.target.selectedIndex;
+            // use the key to build a string representing the id of the 
+            // corresponding line
+            d3.selectAll(".employee .line").classed("toggled", false);
+            var tggldLineString = "#line-" + key.replace(/\s+/g, "-").replace(/\.+/g, "").toLowerCase(); 
+            // determine if the corresponding line is active
+            var tggldLine = d3.select(tggldLineString);
+            var tggldOption = d3.select(d3.event.target.children[index]);
+            var state = tggldOption.active ? false : true;
             // update opacity of line element
-            d3.select(tggldLine).classed("toggled", false);
-          }
-        });
+            tggldLine.classed("toggled", state);
+            tggldOption.active = state;
+          };
+
+        d3.select("#data-toggle-list")
+          .on("change", toggleLine);
 
         function resize() {
           var width = $(".data-display .chart").width() - margin.left - margin.right;
@@ -482,7 +419,7 @@ tickets:
 
           employee.selectAll(".line")
             .attr("d", function(d) { return line(d.values); })
-            .attr("stroke", function(d) { return color(d.name); });
+            .attr("stroke", function(d) { return color('#efefef'); });
 
         }
 
