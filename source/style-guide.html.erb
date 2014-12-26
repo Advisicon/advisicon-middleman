@@ -277,13 +277,23 @@ tickets:
         .x(function(d) { return x( d.date ); })
         .y(function(d) { return y( d.hours ); });
 
+      
+      var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10,0])
+        .html(function(d){
+          return d.name
+        });
+
       var svg = d3.select("#first-dataset .chart")
         .append("svg")
           .attr("class", "graph")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
         .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        svg.call(tip);
 
       // Get the data
       d3.tsv("/data/total_hours.tsv", function(error, data) {
@@ -357,6 +367,9 @@ tickets:
           .attr("d", function(d) { return line(d.values); })
           .attr("stroke", function(d) { return color(d.name); });
 
+        // Add tooltips
+
+        employee.on('mouseover', tip.show).on('mouseout', tip.hide);
         // Add toggle lists
         var data_toggle_form = d3.select("#first-dataset .chart").append("form")
           .classed('training form', true);
@@ -395,6 +408,7 @@ tickets:
 
         d3.select("#data-toggle-list")
           .on("change", toggleLine);
+
 
         function resize() {
           var width = $(".data-display .chart").width() - margin.left - margin.right;
